@@ -1,3 +1,12 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [4.4.3](https://github.com/snickbit/snickbit.js/compare/@snickbit/node-utilities@4.4.2...@snickbit/node-utilities@4.4.3) (2022-08-05)
+
+**Note:** Version bump only for package @snickbit/node-utilities
+
 # @snickbit/node-utilities
 
 ## 4.4.1
