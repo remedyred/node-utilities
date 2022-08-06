@@ -66,7 +66,7 @@ export function parseImports<I extends ImportMethod = ImportMethod>(imports: Raw
 		}
 
 		if (isImport(data) || isImportDefinition(data)) {
-			let unparsed = data as UnparsedImport
+			const unparsed = data as UnparsedImport
 
 			const parsed = {} as ParsedImport
 			let sub_import_name = isImportDefinition(data) && unparsed.name ? unparsed.name : import_name
