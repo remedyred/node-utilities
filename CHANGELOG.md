@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.4.4](https://github.com/snickbit/snickbit.js/compare/@snickbit/node-utilities@4.4.3...@snickbit/node-utilities@4.4.4) (2022-08-06)
+
+### Bug Fixes
+
+* replace let with const ([1d5c624](https://github.com/snickbit/snickbit.js/commit/1d5c6248acdc7d9e4d46ba94c03af1932d9a5c76))
+
 ## [4.4.3](https://github.com/snickbit/snickbit.js/compare/@snickbit/node-utilities@4.4.2...@snickbit/node-utilities@4.4.3) (2022-08-05)
 
 **Note:** Version bump only for package @snickbit/node-utilities
