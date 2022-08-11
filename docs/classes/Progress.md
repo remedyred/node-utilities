@@ -2,7 +2,9 @@
 
 Progress bar. Uses cli-progress and @snickbit/out to output progress.
 
-**`see`** https://github.com/npkgz/cli-progress
+**`See`**
+
+https://github.com/npkgz/cli-progress
 
 ## Hierarchy
 

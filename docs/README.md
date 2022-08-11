@@ -711,7 +711,9 @@ ___
 
 Multi-Progress bar. Uses cli-progress to create multiple progress bars.
 
-**`see`** https://github.com/npkgz/cli-progress
+**`See`**
+
+https://github.com/npkgz/cli-progress
 
 #### Parameters
 
@@ -731,7 +733,9 @@ ___
 
 Progress bar. Uses cli-progress to create multiple progress bars.
 
-**`see`** https://github.com/npkgz/cli-progress
+**`See`**
+
+https://github.com/npkgz/cli-progress
 
 #### Parameters
 
@@ -753,7 +757,9 @@ ___
 
 Prompt the user for input using Prompts.
 
-**`see`** https://github.com/terkelg/prompts
+**`See`**
+
+https://github.com/terkelg/prompts
 
 #### Parameters
 
@@ -787,7 +793,9 @@ ___
 
 Prompt the user for confirmation using Prompts.
 
-**`see`** https://github.com/terkelg/prompts
+**`See`**
+
+https://github.com/terkelg/prompts
 
 #### Parameters
 
@@ -839,7 +847,9 @@ ___
 
 Spinner. Uses nanospinner to show spinners in the terminal.
 
-**`see`** https://github.com/usmanyunusov/nanospinner
+**`See`**
+
+https://github.com/usmanyunusov/nanospinner
 
 #### Parameters
 

@@ -2,7 +2,9 @@
 
 Spinner. Uses nanospinner to show spinners in the terminal.
 
-**`see`** https://github.com/usmanyunusov/nanospinner
+**`See`**
+
+https://github.com/usmanyunusov/nanospinner
 
 ## Table of contents
 

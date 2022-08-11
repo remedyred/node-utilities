@@ -2,7 +2,9 @@
 
 Multi-Progress bar. Uses cli-progress to create multiple progress bars.
 
-**`see`** https://github.com/npkgz/cli-progress
+**`See`**
+
+https://github.com/npkgz/cli-progress
 
 ## Hierarchy
 
