@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.4.6](https://github.com/snickbit/snickbit.js/compare/@snickbit/node-utilities@4.4.5...@snickbit/node-utilities@4.4.6) (2022-08-13)
+
+### Bug Fixes
+
+* **files:** deprecate *FileJson methods in favor of *FileJSON naming convention ([#18](https://github.com/snickbit/snickbit.js/issues/18)) ([50ee50b](https://github.com/snickbit/snickbit.js/commit/50ee50b8974f43399371d31bec522790b78d1433))
+
 ## [4.4.5](https://github.com/snickbit/snickbit.js/compare/@snickbit/node-utilities@4.4.4...@snickbit/node-utilities@4.4.5) (2022-08-11)
 
 **Note:** Version bump only for package @snickbit/node-utilities
