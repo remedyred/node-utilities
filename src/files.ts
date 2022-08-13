@@ -6,7 +6,14 @@ import path from 'path'
  * Save file to disk as JSON
  * @category Files
  */
-export const saveFileJson = (filepath: PathOrFileDescriptor, content: any, options: WriteFileOptions = 'utf8') => saveFile(filepath, `${JSON.stringify(content, null, '\t')}\n`, options)
+export const saveFileJSON = (filepath: PathOrFileDescriptor, content: any, options: WriteFileOptions = 'utf8') => saveFile(filepath, `${JSON.stringify(content, null, '\t')}\n`, options)
+
+/**
+ * Save file to disk as JSON
+ * @category Files
+ * @deprecated use saveFileJSON instead
+ */
+export const saveFileJson = saveFileJSON
 
 /** @category Files */
 export const fileExists = (filepath: PathLike) => fs.existsSync(filepath)
@@ -57,10 +64,17 @@ export function unlink(filepath: PathLike) {
  * Get JSON from file
  * @category Files
  */
-export function getFileJson(filepath: PathLike, fallback?: any) {
+export function getFileJSON(filepath: PathLike, fallback?: any) {
 	const content = getFile(filepath)
 	return content ? JSONParse(content, fallback) : fallback
 }
+
+/**
+ * Get JSON from file
+ * @category Files
+ * @deprecated use getFileJSON instead
+ */
+export const getFileJson = getFileJSON
 
 /** @category Files */
 export interface FindUpOptions {

@@ -117,11 +117,13 @@
 - [fileExists](README.md#fileexists)
 - [findUp](README.md#findup)
 - [getFile](README.md#getfile)
-- [getFileJson](README.md#getfilejson)
+- [getFileJSON](README.md#getfilejson)
+- [getFileJson](README.md#getfilejson-1)
 - [isDirectory](README.md#isdirectory)
 - [mkdir](README.md#mkdir)
 - [saveFile](README.md#savefile)
-- [saveFileJson](README.md#savefilejson)
+- [saveFileJSON](README.md#savefilejson)
+- [saveFileJson](README.md#savefilejson-1)
 - [unlink](README.md#unlink)
 
 ### Imports Functions
@@ -533,6 +535,25 @@ Get file content
 
 ___
 
+### getFileJSON
+
+▸ **getFileJSON**(`filepath`, `fallback?`): `any`
+
+Get JSON from file
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `filepath` | `PathLike` |
+| `fallback?` | `any` |
+
+#### Returns
+
+`any`
+
+___
+
 ### getFileJson
 
 ▸ **getFileJson**(`filepath`, `fallback?`): `any`
@@ -600,6 +621,26 @@ Save file to disk
 | :------ | :------ | :------ |
 | `filepath` | `PathOrFileDescriptor` | `undefined` |
 | `content` | `string` \| `ArrayBufferView` | `undefined` |
+| `options` | `WriteFileOptions` | `'utf8'` |
+
+#### Returns
+
+`void`
+
+___
+
+### saveFileJSON
+
+▸ **saveFileJSON**(`filepath`, `content`, `options?`): `void`
+
+Save file to disk as JSON
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `filepath` | `PathOrFileDescriptor` | `undefined` |
+| `content` | `any` | `undefined` |
 | `options` | `WriteFileOptions` | `'utf8'` |
 
 #### Returns
