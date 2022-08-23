@@ -166,7 +166,7 @@ export class Progress {
 				delete payload.value
 			}
 		} else if (typeof valueMessageOrPayload === 'string') {
-			payload = {message: valueMessageOrPayload, ...payload || {}}
+			payload = {message: valueMessageOrPayload, ...payload}
 		} else if (typeof valueMessageOrPayload === 'number') {
 			value = valueMessageOrPayload
 		}

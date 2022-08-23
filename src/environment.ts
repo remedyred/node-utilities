@@ -28,7 +28,7 @@ export const user_config_dir = `${os.homedir()}/.config`
 export const user_data_dir: string = app_data_dir
 
 /** @category Environment */
-export const verbose: number = parseInt(process.env.VERBOSE || '0') || 0
+export const verbose: number = Number.parseInt(process.env.VERBOSE || '0') || 0
 
 /** @category Environment */
 export const bashrc_path = `${home_dir}/.bashrc`
@@ -49,4 +49,4 @@ export const isBundledElectronApp = (): boolean => isElectronApp() && !process?.
  * interpolate string with env variables, optionally pass an object of default values
  * @category Environment
  */
-export const interpolateEnv = (str: string, defaultValues: Record<string, string> = {}): string => interpolate(str, {...defaultValues || {}, ...process.env})
+export const interpolateEnv = (str: string, defaultValues: Record<string, string> = {}): string => interpolate(str, {...defaultValues, ...process.env})

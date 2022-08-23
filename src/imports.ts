@@ -55,7 +55,7 @@ export interface UnparsedImport<I extends ImportMethod = ImportMethod> {
 export function parseImports<I extends ImportMethod = ImportMethod>(imports: RawImports, parent?: string): ParsedImportRecords<I> {
 	const importRecords = {}
 	for (const [import_item, data] of Object.entries(imports)) {
-		let parent_name = parent ? parent : ''
+		let parent_name = parent ?? ''
 		let import_name: string
 
 		if (import_item !== 'default') {
@@ -80,12 +80,8 @@ export function parseImports<I extends ImportMethod = ImportMethod>(imports: Raw
 			parsed.aliases = arrayUnique([unparsed?.alias, ...unparsed.aliases || []].flat()).filter(Boolean)
 			parsed.description = unparsed.description || unparsed.describe
 			const handler = unparsed.handler || unparsed.method || unparsed.run || unparsed.default || unparsed
-			if (handler && isCallable(handler)) {
-				parsed.handler = handler as I
-			} else {
-				parsed.handler = () => {
-					console.warn(`No handler found for ${parsed.name}`)
-				}
+			parsed.handler = handler && isCallable(handler) ? handler as I : () => {
+				console.warn(`No handler found for ${parsed.name}`)
 			}
 			importRecords[parsed.name] = parsed
 		} else {

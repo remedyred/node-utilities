@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import {isObject, parseOptions} from '@snickbit/utilities'
 import prompts from 'prompts'
 import Stream from 'stream'
@@ -188,7 +189,7 @@ function onState(state: PromptState) {
 	if (state.aborted) {
 		// If we don't re-enable the terminal cursor before exiting
 		// the program, the cursor will remain hidden
-		process.stdout.write('\x1B[?25h')
+		process.stdout.write('\u001B[?25h')
 		process.stdout.write('\n')
 		process.exit(1)
 	}
@@ -259,8 +260,8 @@ export async function ask(question: string, optionsOrDefault?: Partial<Question>
 			}
 		}
 
-		choices = options.choices.slice()
-		useIndexes = choices.some(isLazyChoice)
+		choices = [...options.choices]
+		useIndexes = choices.some(element => isLazyChoice(element))
 		options.choices = []
 		for (const choice of choices) {
 			if (isLazyChoice(choice)) {
@@ -271,7 +272,8 @@ export async function ask(question: string, optionsOrDefault?: Partial<Question>
 		}
 	}
 
-	const answer = (await prompts(options))?.value
+	const response = await prompts(options)
+	const answer = response?.value
 
 	if (useIndexes && choices && answer && choices[answer]) {
 		return choices[answer]?.value || choices[answer] || answer
