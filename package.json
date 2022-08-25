@@ -27,7 +27,10 @@
 		"watch": "pnpm run dev --watch"
 	},
 	"release": {
-		"extends": "../../.releaserc.json"
+		"extends": [
+			"semantic-release-monorepo",
+			"@snickbit/semantic-release"
+		]
 	},
 	"jest": {
 		"preset": "ts-jest",
