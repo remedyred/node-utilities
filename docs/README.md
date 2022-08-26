@@ -591,7 +591,7 @@ ___
 
 ### mkdir
 
-▸ **mkdir**(`dir_path`, `options?`): `void`
+▸ **mkdir**(`dir_path`, `recursive?`): `void`
 
 Make a directory
 
@@ -600,8 +600,7 @@ Make a directory
 | Name | Type | Default value |
 | :------ | :------ | :------ |
 | `dir_path` | `PathLike` | `undefined` |
-| `options` | `Object` | `undefined` |
-| `options.recursive` | `boolean` | `true` |
+| `recursive` | `boolean` | `true` |
 
 #### Returns
 
