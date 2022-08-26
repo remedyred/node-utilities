@@ -23,7 +23,7 @@
 		"dev:types": "tsc --emitDeclarationOnly --declarationMap --declarationDir .types",
 		"docs": "typedoc",
 		"meta": "tsup --minify --metafile",
-		"release": "semantic-release",
+		"release": "semantic-release --dry-run",
 		"watch": "pnpm run dev --watch"
 	},
 	"release": {
