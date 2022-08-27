@@ -88,7 +88,7 @@ ___
 
 ### style
 
-• **style**: ``"default"`` \| ``"password"`` \| ``"invisible"`` \| ``"emoji"``
+• **style**: ``"default"`` \| ``"invisible"`` \| ``"password"`` \| ``"emoji"``
 
 ___
 

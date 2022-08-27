@@ -18,12 +18,12 @@ npm add @snickbit/node-utilities
 
 ## Documentation
 
-### [API Docs](https://github.com/snickbit/snickbit.js/blob/main/packages/node-utilities/docs/README.md)
+### [API Docs](./docs/README.md)
 
-### [CHANGELOG](https://github.com/snickbit/snickbit.js/blob/main/packages/node-utilities/CHANGELOG.md)
+### [CHANGELOG](CHANGELOG.md)
 
 ## License
 
 Copyright (c) 2022 - **Nicholas Lowe** aka **Snickbit**
 
-[MIT License](https://github.com/snickbit/snickbit.js/blob/main/LICENSE)
+[MIT License](../../LICENSE)
