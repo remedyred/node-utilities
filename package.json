@@ -22,7 +22,7 @@
 		"depcheck": "depcheck",
 		"dev": "tsup",
 		"dev:types": "tsc --emitDeclarationOnly --declarationMap --declarationDir .types",
-		"docs": "typedoc",
+		"docs": "typedoc src/index.ts",
 		"release": "semantic-release",
 		"watch": "pnpm run dev --watch"
 	},
