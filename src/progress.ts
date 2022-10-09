@@ -121,10 +121,11 @@ export class Progress {
 	#formatValue(v, options, type): any {
 		switch (this.options.valueFormat) {
 			case 'bytes':
-			case 'byte':
+			case 'byte': {
 				if (type === 'value' || type === 'total') {
 					return formatBytes(v)
 				}
+			}
 		}
 		return cliProgress.Format.ValueFormat(v, options, type)
 	}

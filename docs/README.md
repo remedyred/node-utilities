@@ -560,6 +560,10 @@ ___
 
 Get JSON from file
 
+**`Deprecated`**
+
+use getFileJSON instead
+
 #### Parameters
 
 | Name | Type |
@@ -653,6 +657,10 @@ ___
 ▸ **saveFileJson**(`filepath`, `content`, `options?`): `void`
 
 Save file to disk as JSON
+
+**`Deprecated`**
+
+use saveFileJSON instead
 
 #### Parameters
 
