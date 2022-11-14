@@ -56,9 +56,7 @@ export class Spinner {
 	 * Parse the options
 	 */
 	#parseOptions(options?: SpinnerOptions | string, fallback_text?: string): SpinnerConfig {
-		if (!options) {
-			options = {}
-		}
+		options ||= {}
 
 		if (isString(options)) {
 			options = {text: options as string}

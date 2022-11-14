@@ -7,7 +7,8 @@ import Stream from 'stream'
 export type PromptsMethod = (prev: string, answers: Answers, previousQuestion: Question) => Promise<string> | string
 
 /** @category Prompts */
-export type PromptType = 'autocomplete' | 'autocompleteMultiselect' | 'confirm' | 'date' | 'invisible' | 'list' | 'multiselect' | 'number' | 'password' | 'select' | 'text' | 'toggle'
+export type PromptType = 'autocomplete' | 'autocompleteMultiselect' | 'confirm' | 'date' | 'invisible'
+	| 'list' | 'multiselect' | 'number' | 'password' | 'select' | 'text' | 'toggle'
 
 /** @category Prompts */
 export type AnswerTypes = Date | boolean | number | string
@@ -242,9 +243,7 @@ export async function ask(question: string, optionsOrDefault?: Partial<Question>
 	}, 'initial')
 
 	// double check that it has a name
-	if (!options.name) {
-		options.name = 'value'
-	}
+	options.name ||= 'value'
 
 	if (options.type === 'multiselect' && options.initial) {
 		throw new Error('Cannot use initial with multiselect')

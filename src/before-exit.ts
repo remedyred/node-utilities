@@ -4,9 +4,7 @@ let _emitter
 
 /** @internal */
 function useEmitter() {
-	if (!_emitter) {
-		_emitter = new EventEmitter()
-	}
+	_emitter ||= new EventEmitter()
 	return _emitter
 }
 
@@ -22,7 +20,7 @@ export function beforeExit(callback: () => void) {
 
 	// attach user callback to the process event emitter
 	// if no callback, it will still exit gracefully on Ctrl-C
-	callback = callback || (() => void 0)
+	callback ||= (() => void 0)
 	emitter.on('cleanup', callback)
 
 	// do app specific cleaning before exiting

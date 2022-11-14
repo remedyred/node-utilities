@@ -6,7 +6,9 @@ import path from 'path'
  * Save file to disk as JSON
  * @category Files
  */
-export const saveFileJSON = (filepath: PathOrFileDescriptor, content: any, options: WriteFileOptions = 'utf8') => saveFile(filepath, `${JSON.stringify(content, null, '\t')}\n`, options)
+export function saveFileJSON(filepath: PathOrFileDescriptor, content: any, options: WriteFileOptions = 'utf8') {
+	return saveFile(filepath, `${JSON.stringify(content, null, '\t')}\n`, options)
+}
 
 /**
  * Save file to disk as JSON
@@ -89,7 +91,7 @@ export function findUp(name: PathLike | string, options?: Partial<FindUpOptions>
 		cwd: process.cwd(),
 		distance: false
 	}, 'cwd') as FindUpOptions
-	options.d = options.d || 0
+	options.d ||= 0
 
 	const directory = path.resolve(options.cwd || '')
 	const parsed = path.parse(directory)
