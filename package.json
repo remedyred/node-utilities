@@ -35,7 +35,7 @@
 	},
 	"dependencies": {
 		"@snickbit/out": "2.0.48",
-		"@snickbit/utilities": "3.4.15",
+		"@snickbit/utilities": "3.4.16",
 		"ansi-styles-template": "^1.0.0",
 		"cli-progress": "3.11.2",
 		"is-wsl": "^2.2.0",
