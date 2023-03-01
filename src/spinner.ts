@@ -1,6 +1,6 @@
 import {Out} from '@snickbit/out'
-import {isNumber, isString} from '@snickbit/utilities'
-import Spinnies, {SpinnerStatus, SpinnerOptions} from '@trufflesuite/spinnies'
+import {isBoolean, isNumber, isString} from '@snickbit/utilities'
+import Spinnies, {SpinnerStatus, SpinnerOptions as BaseSpinnerOptions} from '@trufflesuite/spinnies'
 import throttle from 'lodash.throttle'
 
 type SpinnerId = number | string
@@ -9,13 +9,19 @@ const spinnerUpdate = throttle((instance, id, options) => {
 	instance.update(id, options)
 }, 150)
 
+export interface SpinnerOptions extends BaseSpinnerOptions {
+	auto_increment?: number
+}
+
 /**
  * Spinner. Uses Spinnies to show spinners in the terminal.
  * @see https://www.npmjs.com/package/@trufflesuite/spinnies
  * @category Spinner
  */
+export function spinner(message: string)
+export function spinner(options: SpinnerOptions)
 export function spinner(options?: SpinnerOptions | string) {
-	return new Spinner(options)
+	return new Spinner(options as any)
 }
 
 /**
@@ -24,16 +30,20 @@ export function spinner(options?: SpinnerOptions | string) {
  * @category Spinner
  */
 export class Spinner {
-	spinner
 	spinnies = new Spinnies()
 
 	preload_message = ''
 
+	auto_increment = 0
+
 	out: Out
 
+	constructor(options?: SpinnerOptions)
+	constructor(defaultText: string)
 	constructor(options?: SpinnerOptions | string) {
 		const parsed = this.#parseOptions(options)
 		this.preload_message = parsed.text
+		this.auto_increment = parsed.auto_increment
 		this.out = new Out('spinner')
 	}
 
@@ -65,6 +75,11 @@ export class Spinner {
 	update(id: SpinnerId, options?: SpinnerOptions): this
 	update(optionsOrId: SpinnerId | SpinnerOptions, possibleOptions?: SpinnerOptions): this {
 		const {id, options} = this.#parseParams(optionsOrId, possibleOptions)
+
+		if (this.auto_increment !== options.auto_increment && isNumber(options.auto_increment)) {
+			this.auto_increment = options.auto_increment
+		}
+
 		spinnerUpdate(this.spinnies, id, options)
 		return this
 	}
@@ -82,6 +97,11 @@ export class Spinner {
 		} else {
 			this.out.info(`${this.preload_message}: ${status}`)
 		}
+		return this
+	}
+
+	autoIncrement(auto_increment: number): this {
+		this.auto_increment = Number(auto_increment)
 		return this
 	}
 
@@ -106,11 +126,15 @@ export class Spinner {
 	/**
      * Add a spinner
      */
-	add(id: SpinnerId, options?: SpinnerOptions): this {
-		options = this.#parseOptions(options)
+	add(message: string): SpinnerOptions & {id: SpinnerId}
+	add(options: SpinnerOptions): SpinnerOptions & {id: SpinnerId}
+	add(id: SpinnerId, options?: SpinnerOptions): SpinnerOptions & {id: SpinnerId}
+	add(optionsOrIdOrMessage: SpinnerId | SpinnerOptions, possibleOptions?: SpinnerOptions): SpinnerOptions & {id: SpinnerId} {
+		const {id, options} = this.#parseParams(optionsOrIdOrMessage, possibleOptions)
 		this.preload_message ||= options.text
-		this.spinnies.add(String(id), options)
-		return this
+		const addId = id === '0' ? String(this.auto_increment++) : id
+		this.spinnies.add(addId, options)
+		return {id: addId, ...options}
 	}
 
 	/**
