@@ -48,10 +48,6 @@
 - [TextQuestion](interfaces/TextQuestion.md)
 - [ToggleQuestion](interfaces/ToggleQuestion.md)
 
-### Spinner Interfaces
-
-- [SpinnerConfig](interfaces/SpinnerConfig.md)
-
 ### Imports Type Aliases
 
 - [ImportRecords](README.md#importrecords)
@@ -80,10 +76,6 @@
 - [PromptsMethod](README.md#promptsmethod)
 - [Question](README.md#question)
 - [QuestionRecords](README.md#questionrecords)
-
-### Spinner Type Aliases
-
-- [SpinnerOptions](README.md#spinneroptions)
 
 ### Environment Variables
 
@@ -315,14 +307,6 @@ ___
 ### QuestionRecords
 
 Ƭ **QuestionRecords**: `Record`<`string`, [`Question`](README.md#question)\>
-
-___
-
-## Spinner Type Aliases
-
-### SpinnerOptions
-
-Ƭ **SpinnerOptions**: `Partial`<[`SpinnerConfig`](interfaces/SpinnerConfig.md)\>
 
 ## Environment Variables
 
@@ -893,17 +877,17 @@ ___
 
 ▸ **spinner**(`options?`): [`Spinner`](classes/Spinner.md)
 
-Spinner. Uses nanospinner to show spinners in the terminal.
+Spinner. Uses Spinnies to show spinners in the terminal.
 
 **`See`**
 
-https://github.com/usmanyunusov/nanospinner
+https://www.npmjs.com/package/@trufflesuite/spinnies
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options?` | `string` \| `Partial`<[`SpinnerConfig`](interfaces/SpinnerConfig.md)\> |
+| `options?` | `string` \| `SpinnerOptions` |
 
 #### Returns
 
