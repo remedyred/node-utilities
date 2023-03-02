@@ -887,7 +887,7 @@ ___
 
 ### spinner
 
-▸ **spinner**(`message`): `any`
+▸ **spinner**(`message?`): `any`
 
 Spinner. Uses Spinnies to show spinners in the terminal.
 
@@ -899,7 +899,7 @@ https://www.npmjs.com/package/@trufflesuite/spinnies
 
 | Name | Type |
 | :------ | :------ |
-| `message` | `string` |
+| `message?` | `string` |
 
 #### Returns
 
