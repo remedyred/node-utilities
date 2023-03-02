@@ -1,6 +1,6 @@
 import {Out} from '@snickbit/out'
-import {isBoolean, isNumber, isString} from '@snickbit/utilities'
-import Spinnies, {SpinnerStatus, SpinnerOptions as BaseSpinnerOptions} from '@trufflesuite/spinnies'
+import {isNumber, isString} from '@snickbit/utilities'
+import Spinnies, {SpinnerOptions as BaseSpinnerOptions, SpinnerStatus} from '@trufflesuite/spinnies'
 import throttle from 'lodash.throttle'
 
 type SpinnerId = number | string
@@ -9,9 +9,11 @@ const spinnerUpdate = throttle((instance, id, options) => {
 	instance.update(id, options)
 }, 150)
 
-export interface SpinnerOptions extends BaseSpinnerOptions {
-	auto_increment?: number
+export interface SpinnerConfig extends BaseSpinnerOptions {
+	auto_increment: number
 }
+
+export type SpinnerOptions = Partial<SpinnerConfig>
 
 /**
  * Spinner. Uses Spinnies to show spinners in the terminal.
@@ -110,9 +112,10 @@ export class Spinner {
      */
 	start(message: string): this
 	start(options: SpinnerOptions): this
-	start(id: SpinnerId, options?: SpinnerOptions): this
-	start(optionsOrIdOrMessage: SpinnerId | SpinnerOptions, possibleOptions?: SpinnerOptions): this {
-		const {id, options} = this.#parseParams(optionsOrIdOrMessage, possibleOptions)
+	start(id: SpinnerId, message: string): this
+	start(id: SpinnerId, options: SpinnerOptions): this
+	start(optionsOrIdOrMessage: SpinnerId | SpinnerOptions, possibleOptionsOrMessage?: SpinnerOptions | string): this {
+		const {id, options} = this.#parseParams(optionsOrIdOrMessage, possibleOptionsOrMessage)
 
 		this.preload_message ||= options.text
 		if (this.spinnies.pick(id)) {
@@ -128,9 +131,10 @@ export class Spinner {
      */
 	add(message: string): SpinnerOptions & {id: SpinnerId}
 	add(options: SpinnerOptions): SpinnerOptions & {id: SpinnerId}
-	add(id: SpinnerId, options?: SpinnerOptions): SpinnerOptions & {id: SpinnerId}
-	add(optionsOrIdOrMessage: SpinnerId | SpinnerOptions, possibleOptions?: SpinnerOptions): SpinnerOptions & {id: SpinnerId} {
-		const {id, options} = this.#parseParams(optionsOrIdOrMessage, possibleOptions)
+	add(id: SpinnerId, message: string): SpinnerOptions & {id: SpinnerId}
+	add(id: SpinnerId, options: SpinnerOptions): SpinnerOptions & {id: SpinnerId}
+	add(optionsOrIdOrMessage: SpinnerId | SpinnerOptions, possibleOptionsOrMessage?: SpinnerOptions | string): SpinnerOptions & {id: SpinnerId} {
+		const {id, options} = this.#parseParams(optionsOrIdOrMessage, possibleOptionsOrMessage)
 		this.preload_message ||= options.text
 		const addId = id === '0' ? String(this.auto_increment++) : id
 		this.spinnies.add(addId, options)
@@ -254,18 +258,18 @@ export class Spinner {
 	/**
      * Parse the options
      */
-	#parseOptions(options?: SpinnerOptions | string, fallback_text?: string): SpinnerOptions {
-		options ||= {} as SpinnerOptions
+	#parseOptions(options?: SpinnerOptions | string, fallback_text?: string): SpinnerConfig {
+		options ||= {} as SpinnerConfig
 
 		if (isString(options)) {
-			options = {text: options as string} as SpinnerOptions
+			options = {text: options as string} as SpinnerConfig
 		}
 
 		if (options?.text) {
 			options.text = this.#getMessage(options.text, fallback_text)
 		}
 
-		return options
+		return options as SpinnerConfig
 	}
 
 	/**
