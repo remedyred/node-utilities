@@ -34,8 +34,6 @@ export function spinner(options?: SpinnerOptions | string) {
 export class Spinner {
 	spinnies = new Spinnies()
 
-	preload_message = ''
-
 	auto_increment = 0
 
 	out: Out
@@ -44,7 +42,6 @@ export class Spinner {
 	constructor(defaultText: string)
 	constructor(options?: SpinnerOptions | string) {
 		const parsed = this.#parseOptions(options)
-		this.preload_message = parsed.text
 		this.auto_increment = parsed.auto_increment
 		this.out = new Out('spinner')
 	}
@@ -97,7 +94,7 @@ export class Spinner {
 		if (this.spinnies.pick(id)) {
 			this.spinnies.update(id, {status})
 		} else {
-			this.out.info(`${this.preload_message}: ${status}`)
+			this.out.info(`status: ${status}`)
 		}
 		return this
 	}
@@ -117,7 +114,6 @@ export class Spinner {
 	start(optionsOrIdOrMessage?: SpinnerId | SpinnerOptions, possibleOptionsOrMessage?: SpinnerOptions | string): SpinnerChild | this {
 		const {id, options} = this.#parseParams(optionsOrIdOrMessage, possibleOptionsOrMessage)
 
-		this.preload_message ||= options.text
 		if (this.spinnies.pick(id)) {
 			this.status(id, 'spinning')
 			return this
@@ -134,7 +130,6 @@ export class Spinner {
 	add(id: SpinnerId, options: SpinnerOptions): SpinnerChild
 	add(optionsOrIdOrMessage: SpinnerId | SpinnerOptions, possibleOptionsOrMessage?: SpinnerOptions | string): SpinnerChild {
 		const {id, options} = this.#parseParams(optionsOrIdOrMessage, possibleOptionsOrMessage)
-		this.preload_message ||= options.text
 		const addId = id === '0' ? String(this.auto_increment++) : id
 		this.spinnies.add(addId, options)
 		return new SpinnerChild(this, addId)
@@ -275,7 +270,7 @@ export class Spinner {
      * Parse the message, using the fallback if necessary
      */
 	#getMessage(message: string, fallback?: string): string {
-		return message || this.preload_message || fallback || ''
+		return message || fallback || ''
 	}
 }
 
