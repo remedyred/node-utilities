@@ -20,7 +20,7 @@ export type SpinnerOptions = Partial<SpinnerConfig>
  * @see https://www.npmjs.com/package/@trufflesuite/spinnies
  * @category Spinner
  */
-export function spinner(message: string)
+export function spinner(message?: string)
 export function spinner(options: SpinnerOptions)
 export function spinner(options?: SpinnerOptions | string) {
 	return new Spinner(options as any)
@@ -32,18 +32,19 @@ export function spinner(options?: SpinnerOptions | string) {
  * @category Spinner
  */
 export class Spinner {
-	spinnies = new Spinnies()
+	spinnies: Spinnies
 
 	auto_increment = 0
 
 	out: Out
 
 	constructor(options?: SpinnerOptions)
-	constructor(defaultText: string)
+	constructor(message: string)
 	constructor(options?: SpinnerOptions | string) {
 		const parsed = this.#parseOptions(options)
 		this.auto_increment = parsed.auto_increment
 		this.out = new Out('spinner')
+		this.spinnies = new Spinnies(parsed)
 	}
 
 	/**
