@@ -2,6 +2,10 @@
 
 ## Table of contents
 
+### Modules Classes
+
+- [SpinnerChild](classes/SpinnerChild.md)
+
 ### Progress Classes
 
 - [MultiProgress](classes/MultiProgress.md)
@@ -24,6 +28,7 @@
 
 - [AutoCompleteQuestion](interfaces/AutoCompleteQuestion.md)
 - [MultiProgressChildConfig](interfaces/MultiProgressChildConfig.md)
+- [SpinnerConfig](interfaces/SpinnerConfig.md)
 - [UnparsedImport](interfaces/UnparsedImport.md)
 
 ### Progress Interfaces
@@ -61,6 +66,7 @@
 - [ProgressOptions](README.md#progressoptions)
 - [ProgressPayload](README.md#progresspayload)
 - [RawImports](README.md#rawimports)
+- [SpinnerOptions](README.md#spinneroptions)
 
 ### Progress Type Aliases
 
@@ -233,6 +239,12 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `I` | extends [`ImportMethod`](README.md#importmethod) = [`ImportMethod`](README.md#importmethod) |
+
+___
+
+### SpinnerOptions
+
+Ƭ **SpinnerOptions**: `Partial`<[`SpinnerConfig`](interfaces/SpinnerConfig.md)\>
 
 ___
 
@@ -875,7 +887,7 @@ ___
 
 ### spinner
 
-▸ **spinner**(`options?`): [`Spinner`](classes/Spinner.md)
+▸ **spinner**(`message`): `any`
 
 Spinner. Uses Spinnies to show spinners in the terminal.
 
@@ -887,8 +899,20 @@ https://www.npmjs.com/package/@trufflesuite/spinnies
 
 | Name | Type |
 | :------ | :------ |
-| `options?` | `string` \| `SpinnerOptions` |
+| `message` | `string` |
 
 #### Returns
 
-[`Spinner`](classes/Spinner.md)
+`any`
+
+▸ **spinner**(`options`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options` | `Partial`<[`SpinnerConfig`](interfaces/SpinnerConfig.md)\> |
+
+#### Returns
+
+`any`

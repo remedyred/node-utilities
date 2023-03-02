@@ -14,14 +14,14 @@ https://www.npmjs.com/package/@trufflesuite/spinnies
 
 ### Properties
 
+- [auto\_increment](Spinner.md#auto_increment)
 - [out](Spinner.md#out)
-- [preload\_message](Spinner.md#preload_message)
-- [spinner](Spinner.md#spinner)
 - [spinnies](Spinner.md#spinnies)
 
 ### Methods
 
 - [add](Spinner.md#add)
+- [autoIncrement](Spinner.md#autoincrement)
 - [error](Spinner.md#error)
 - [fail](Spinner.md#fail)
 - [finish](Spinner.md#finish)
@@ -45,25 +45,27 @@ https://www.npmjs.com/package/@trufflesuite/spinnies
 
 | Name | Type |
 | :------ | :------ |
-| `options?` | `string` \| `SpinnerOptions` |
+| `options?` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
+
+• **new Spinner**(`defaultText`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `defaultText` | `string` |
 
 ## Properties
+
+### auto\_increment
+
+• **auto\_increment**: `number` = `0`
+
+___
 
 ### out
 
 • **out**: `Out`
-
-___
-
-### preload\_message
-
-• **preload\_message**: `string` = `''`
-
-___
-
-### spinner
-
-• **spinner**: `any`
 
 ___
 
@@ -75,7 +77,7 @@ ___
 
 ### add
 
-▸ **add**(`id`, `options?`): [`Spinner`](Spinner.md)
+▸ **add**(`message`): [`SpinnerChild`](SpinnerChild.md)
 
 Add a spinner
 
@@ -83,8 +85,61 @@ Add a spinner
 
 | Name | Type |
 | :------ | :------ |
+| `message` | `string` |
+
+#### Returns
+
+[`SpinnerChild`](SpinnerChild.md)
+
+▸ **add**(`options`): [`SpinnerChild`](SpinnerChild.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
+
+#### Returns
+
+[`SpinnerChild`](SpinnerChild.md)
+
+▸ **add**(`id`, `message`): [`SpinnerChild`](SpinnerChild.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
 | `id` | `SpinnerId` |
-| `options?` | `SpinnerOptions` |
+| `message` | `string` |
+
+#### Returns
+
+[`SpinnerChild`](SpinnerChild.md)
+
+▸ **add**(`id`, `options`): [`SpinnerChild`](SpinnerChild.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `id` | `SpinnerId` |
+| `options` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
+
+#### Returns
+
+[`SpinnerChild`](SpinnerChild.md)
+
+___
+
+### autoIncrement
+
+▸ **autoIncrement**(`auto_increment`): [`Spinner`](Spinner.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `auto_increment` | `number` |
 
 #### Returns
 
@@ -94,7 +149,7 @@ ___
 
 ### error
 
-▸ **error**(`message`): [`Spinner`](Spinner.md)
+▸ **error**(`message?`): [`Spinner`](Spinner.md)
 
 Error and stop the spinner
 
@@ -102,7 +157,7 @@ Error and stop the spinner
 
 | Name | Type |
 | :------ | :------ |
-| `message` | `string` |
+| `message?` | `string` |
 
 #### Returns
 
@@ -114,7 +169,7 @@ Error and stop the spinner
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `SpinnerOptions` |
+| `options` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
 
 #### Returns
 
@@ -127,7 +182,7 @@ Error and stop the spinner
 | Name | Type |
 | :------ | :------ |
 | `id` | `SpinnerId` |
-| `options?` | `SpinnerOptions` |
+| `options?` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
 
 #### Returns
 
@@ -137,7 +192,7 @@ ___
 
 ### fail
 
-▸ **fail**(`message`): [`Spinner`](Spinner.md)
+▸ **fail**(`message?`): [`Spinner`](Spinner.md)
 
 Fail and stop the spinner
 
@@ -145,7 +200,7 @@ Fail and stop the spinner
 
 | Name | Type |
 | :------ | :------ |
-| `message` | `string` |
+| `message?` | `string` |
 
 #### Returns
 
@@ -157,7 +212,7 @@ Fail and stop the spinner
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `SpinnerOptions` |
+| `options` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
 
 #### Returns
 
@@ -170,7 +225,7 @@ Fail and stop the spinner
 | Name | Type |
 | :------ | :------ |
 | `id` | `SpinnerId` |
-| `options?` | `SpinnerOptions` |
+| `options?` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
 
 #### Returns
 
@@ -180,7 +235,7 @@ ___
 
 ### finish
 
-▸ **finish**(`message`): [`Spinner`](Spinner.md)
+▸ **finish**(`message?`): [`Spinner`](Spinner.md)
 
 Succeed and stop the spinner
 
@@ -188,7 +243,7 @@ Succeed and stop the spinner
 
 | Name | Type |
 | :------ | :------ |
-| `message` | `string` |
+| `message?` | `string` |
 
 #### Returns
 
@@ -200,7 +255,7 @@ Succeed and stop the spinner
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `SpinnerOptions` |
+| `options` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
 
 #### Returns
 
@@ -213,7 +268,7 @@ Succeed and stop the spinner
 | Name | Type |
 | :------ | :------ |
 | `id` | `SpinnerId` |
-| `options?` | `SpinnerOptions` |
+| `options?` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
 
 #### Returns
 
@@ -275,7 +330,7 @@ ___
 
 ### start
 
-▸ **start**(`message`): [`Spinner`](Spinner.md)
+▸ **start**(`message?`): [`Spinner`](Spinner.md) \| [`SpinnerChild`](SpinnerChild.md)
 
 Start the spinner
 
@@ -283,36 +338,49 @@ Start the spinner
 
 | Name | Type |
 | :------ | :------ |
-| `message` | `string` |
+| `message?` | `string` |
 
 #### Returns
 
-[`Spinner`](Spinner.md)
+[`Spinner`](Spinner.md) \| [`SpinnerChild`](SpinnerChild.md)
 
-▸ **start**(`options`): [`Spinner`](Spinner.md)
+▸ **start**(`options`): [`Spinner`](Spinner.md) \| [`SpinnerChild`](SpinnerChild.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `SpinnerOptions` |
+| `options` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
 
 #### Returns
 
-[`Spinner`](Spinner.md)
+[`Spinner`](Spinner.md) \| [`SpinnerChild`](SpinnerChild.md)
 
-▸ **start**(`id`, `options?`): [`Spinner`](Spinner.md)
+▸ **start**(`id`, `message`): [`Spinner`](Spinner.md) \| [`SpinnerChild`](SpinnerChild.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `id` | `SpinnerId` |
-| `options?` | `SpinnerOptions` |
+| `message` | `string` |
 
 #### Returns
 
-[`Spinner`](Spinner.md)
+[`Spinner`](Spinner.md) \| [`SpinnerChild`](SpinnerChild.md)
+
+▸ **start**(`id`, `options`): [`Spinner`](Spinner.md) \| [`SpinnerChild`](SpinnerChild.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `id` | `SpinnerId` |
+| `options` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
+
+#### Returns
+
+[`Spinner`](Spinner.md) \| [`SpinnerChild`](SpinnerChild.md)
 
 ___
 
@@ -349,7 +417,7 @@ ___
 
 ### stop
 
-▸ **stop**(`message`): [`Spinner`](Spinner.md)
+▸ **stop**(`message?`): [`Spinner`](Spinner.md)
 
 Stop the spinner
 
@@ -357,7 +425,7 @@ Stop the spinner
 
 | Name | Type |
 | :------ | :------ |
-| `message` | `string` |
+| `message?` | `string` |
 
 #### Returns
 
@@ -369,7 +437,7 @@ Stop the spinner
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `SpinnerOptions` |
+| `options` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
 
 #### Returns
 
@@ -382,7 +450,7 @@ Stop the spinner
 | Name | Type |
 | :------ | :------ |
 | `id` | `SpinnerId` |
-| `options?` | `SpinnerOptions` |
+| `options?` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
 
 #### Returns
 
@@ -443,7 +511,7 @@ Update the spinner
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `SpinnerOptions` |
+| `options` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
 
 #### Returns
 
@@ -456,7 +524,7 @@ Update the spinner
 | Name | Type |
 | :------ | :------ |
 | `id` | `SpinnerId` |
-| `options?` | `SpinnerOptions` |
+| `options?` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
 
 #### Returns
 
