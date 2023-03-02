@@ -1,5 +1,5 @@
 import {Out} from '@snickbit/out'
-import {isNumber, isString} from '@snickbit/utilities'
+import {isNumber, isObject, isString} from '@snickbit/utilities'
 import Spinnies, {SpinnerOptions as BaseSpinnerOptions, SpinnerStatus} from '@trufflesuite/spinnies'
 import throttle from 'lodash.throttle'
 
@@ -41,7 +41,7 @@ export class Spinner {
 	constructor(options?: SpinnerOptions)
 	constructor(message: string)
 	constructor(options?: SpinnerOptions | string) {
-		const parsed = this.#parseOptions(options)
+		const parsed = this.#parseOptions(0, options)
 		this.auto_increment = parsed.auto_increment
 		this.out = new Out('spinner')
 		this.spinnies = new Spinnies(parsed)
@@ -109,11 +109,11 @@ export class Spinner {
      * Start the spinner
      */
 	start(message?: string): SpinnerChild | this
+	start(id: SpinnerId, message?: string): SpinnerChild | this
 	start(options: SpinnerOptions): SpinnerChild | this
-	start(id: SpinnerId, message: string): SpinnerChild | this
 	start(id: SpinnerId, options: SpinnerOptions): SpinnerChild | this
-	start(optionsOrIdOrMessage?: SpinnerId | SpinnerOptions, possibleOptionsOrMessage?: SpinnerOptions | string): SpinnerChild | this {
-		const {id, options} = this.#parseParams(optionsOrIdOrMessage, possibleOptionsOrMessage)
+	start(optionsOrIdOrMessage?: SpinnerId | SpinnerOptions, possibleOptions?: SpinnerOptions | string): SpinnerChild | this {
+		const {id, options} = this.#parseParams(optionsOrIdOrMessage, possibleOptions)
 
 		if (this.spinnies.pick(id)) {
 			this.update(id, {...options, status: 'spinning'})
@@ -125,12 +125,12 @@ export class Spinner {
 	/**
      * Add a spinner
      */
-	add(message: string): SpinnerChild
+	add(message?: string): SpinnerChild
+	add(id: SpinnerId, message?: string): SpinnerChild
 	add(options: SpinnerOptions): SpinnerChild
-	add(id: SpinnerId, message: string): SpinnerChild
 	add(id: SpinnerId, options: SpinnerOptions): SpinnerChild
-	add(optionsOrIdOrMessage: SpinnerId | SpinnerOptions, possibleOptionsOrMessage?: SpinnerOptions | string): SpinnerChild {
-		const {id, options} = this.#parseParams(optionsOrIdOrMessage, possibleOptionsOrMessage)
+	add(optionsOrIdOrMessage?: SpinnerId | SpinnerOptions, possibleOptions?: SpinnerOptions | string): SpinnerChild {
+		const {id, options} = this.#parseParams(optionsOrIdOrMessage, possibleOptions)
 		const addId = id === '0' ? String(this.auto_increment++) : id
 		this.spinnies.add(addId, options)
 		return new SpinnerChild(this, addId)
@@ -170,9 +170,10 @@ export class Spinner {
      * Fail and stop the spinner
      */
 	fail(message?: string): this
+	fail(id: SpinnerId, message?: string): this
 	fail(options: SpinnerOptions): this
-	fail(id: SpinnerId, options?: SpinnerOptions): this
-	fail(optionsOrIdOrMessage?: SpinnerId | SpinnerOptions, possibleOptions?: SpinnerOptions): this {
+	fail(id: SpinnerId, options: SpinnerOptions): this
+	fail(optionsOrIdOrMessage?: SpinnerId | SpinnerOptions, possibleOptions?: SpinnerOptions | string): this {
 		const {id, options} = this.#parseParams(optionsOrIdOrMessage, possibleOptions)
 
 		if (this.spinnies.pick(id)) {
@@ -197,9 +198,10 @@ export class Spinner {
      * Stop the spinner
      */
 	stop(message?: string): this
+	stop(id: SpinnerId, message?: string): this
 	stop(options: SpinnerOptions): this
-	stop(id: SpinnerId, options?: SpinnerOptions): this
-	stop(optionsOrIdOrMessage?: SpinnerId | SpinnerOptions, possibleOptions?: SpinnerOptions): this {
+	stop(id: SpinnerId, options: SpinnerOptions): this
+	stop(optionsOrIdOrMessage?: SpinnerId | SpinnerOptions, possibleOptions?: SpinnerOptions | string): this {
 		const {id, options} = this.#parseParams(optionsOrIdOrMessage, possibleOptions)
 
 		if (this.spinnies.pick(id)) {
@@ -214,9 +216,10 @@ export class Spinner {
      * Succeed and stop the spinner
      */
 	finish(message?: string): this
+	finish(id: SpinnerId, message?: string): this
 	finish(options: SpinnerOptions): this
-	finish(id: SpinnerId, options?: SpinnerOptions): this
-	finish(optionsOrIdOrMessage?: SpinnerId | SpinnerOptions, possibleOptions?: SpinnerOptions): this {
+	finish(id: SpinnerId, options: SpinnerOptions): this
+	finish(optionsOrIdOrMessage?: SpinnerId | SpinnerOptions, possibleOptions?: SpinnerOptions | string): this {
 		const {id, options} = this.#parseParams(optionsOrIdOrMessage, possibleOptions)
 
 		if (this.spinnies.pick(id)) {
@@ -236,16 +239,22 @@ export class Spinner {
 	#parseParams(optionsOrIdOrMessage?: SpinnerId | SpinnerOptions, possibleOptionsOrMessage?: SpinnerOptions | string) {
 		let options: SpinnerOptions
 		let id = '0'
-		if (isNumber(optionsOrIdOrMessage)) {
-			options = isString(possibleOptionsOrMessage) ? {text: possibleOptionsOrMessage} as SpinnerOptions : possibleOptionsOrMessage
+
+		let optionCheck
+		if (possibleOptionsOrMessage) {
+			optionCheck = possibleOptionsOrMessage
 			id = String(optionsOrIdOrMessage)
-		} else if (isString(optionsOrIdOrMessage)) {
-			options = {text: optionsOrIdOrMessage} as SpinnerOptions
 		} else {
-			options = optionsOrIdOrMessage
+			optionCheck = optionsOrIdOrMessage
 		}
 
-		options = this.#parseOptions(options)
+		if (isString(optionCheck)) {
+			options = {text: optionCheck} as SpinnerOptions
+		} else if (isObject(optionCheck)) {
+			options = optionCheck
+		}
+
+		options = this.#parseOptions(id, options)
 
 		return {id, options}
 	}
@@ -253,7 +262,7 @@ export class Spinner {
 	/**
      * Parse the options
      */
-	#parseOptions(options?: SpinnerOptions | string, fallback_text?: string): SpinnerConfig {
+	#parseOptions(id: SpinnerId, options: SpinnerOptions | string, fallback_text?: string): SpinnerConfig {
 		options ||= {} as SpinnerConfig
 
 		if (isString(options)) {
@@ -261,7 +270,7 @@ export class Spinner {
 		}
 
 		if (options?.text) {
-			options.text = this.#getMessage(options.text, fallback_text)
+			options.text = this.#getMessage(id, options.text, fallback_text)
 		}
 
 		return options as SpinnerConfig
@@ -270,8 +279,23 @@ export class Spinner {
 	/**
      * Parse the message, using the fallback if necessary
      */
-	#getMessage(message: string, fallback?: string): string {
-		return message || fallback || ''
+	#getMessage(message: string, fallback?: string): string
+	#getMessage(id: SpinnerId, message: string, fallback?: string): string
+	#getMessage(messageOrId: SpinnerId | string, fallbackOrMessage?: string, possibleFallback?: string): string {
+		let id: string
+		let message: string
+		let fallback: string
+		if (possibleFallback) {
+			id = String(messageOrId)
+			message = fallbackOrMessage as string
+			fallback = possibleFallback
+		} else {
+			id = '0'
+			message = messageOrId as string
+			fallback = fallbackOrMessage as string
+		}
+
+		return message || fallback || this.spinnies.pick(id)?.text || ''
 	}
 }
 
