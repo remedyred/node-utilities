@@ -208,7 +208,7 @@ export class Spinner {
 		const {id, options} = this.#parseParams(optionsOrIdOrMessage, possibleOptions)
 
 		if (this.spinnies.pick(id)) {
-			this.status(id, 'spinning')
+			this.status(id, 'stopped')
 		} else if (options.text) {
 			this.out.warn(options.text)
 		}
