@@ -175,7 +175,7 @@ export class Spinner {
 	fail(optionsOrIdOrMessage?: SpinnerId | SpinnerOptions, possibleOptions?: SpinnerOptions): this {
 		const {id, options} = this.#parseParams(optionsOrIdOrMessage, possibleOptions)
 
-		if (this.spinnies) {
+		if (this.spinnies.pick(id)) {
 			this.spinnies.fail(id, options.text)
 		} else if (options.text) {
 			this.out.error(options.text)
@@ -219,7 +219,7 @@ export class Spinner {
 	finish(optionsOrIdOrMessage?: SpinnerId | SpinnerOptions, possibleOptions?: SpinnerOptions): this {
 		const {id, options} = this.#parseParams(optionsOrIdOrMessage, possibleOptions)
 
-		if (this.spinnies) {
+		if (this.spinnies.pick(id)) {
 			this.spinnies.succeed(id, options.text)
 		} else if (options.text) {
 			this.out.success(options.text)
