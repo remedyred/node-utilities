@@ -110,11 +110,11 @@ export class Spinner {
 	/**
      * Start the spinner
      */
-	start(message: string): this
-	start(options: SpinnerOptions): this
-	start(id: SpinnerId, message: string): this
-	start(id: SpinnerId, options: SpinnerOptions): this
-	start(optionsOrIdOrMessage: SpinnerId | SpinnerOptions, possibleOptionsOrMessage?: SpinnerOptions | string): this {
+	start(message: string): SpinnerChild | this
+	start(options: SpinnerOptions): SpinnerChild | this
+	start(id: SpinnerId, message: string): SpinnerChild | this
+	start(id: SpinnerId, options: SpinnerOptions): SpinnerChild | this
+	start(optionsOrIdOrMessage: SpinnerId | SpinnerOptions, possibleOptionsOrMessage?: SpinnerOptions | string): SpinnerChild | this {
 		const {id, options} = this.#parseParams(optionsOrIdOrMessage, possibleOptionsOrMessage)
 
 		this.preload_message ||= options.text
@@ -129,16 +129,16 @@ export class Spinner {
 	/**
      * Add a spinner
      */
-	add(message: string): SpinnerOptions & {id: SpinnerId}
-	add(options: SpinnerOptions): SpinnerOptions & {id: SpinnerId}
-	add(id: SpinnerId, message: string): SpinnerOptions & {id: SpinnerId}
-	add(id: SpinnerId, options: SpinnerOptions): SpinnerOptions & {id: SpinnerId}
-	add(optionsOrIdOrMessage: SpinnerId | SpinnerOptions, possibleOptionsOrMessage?: SpinnerOptions | string): SpinnerOptions & {id: SpinnerId} {
+	add(message: string): SpinnerChild
+	add(options: SpinnerOptions): SpinnerChild
+	add(id: SpinnerId, message: string): SpinnerChild
+	add(id: SpinnerId, options: SpinnerOptions): SpinnerChild
+	add(optionsOrIdOrMessage: SpinnerId | SpinnerOptions, possibleOptionsOrMessage?: SpinnerOptions | string): SpinnerChild {
 		const {id, options} = this.#parseParams(optionsOrIdOrMessage, possibleOptionsOrMessage)
 		this.preload_message ||= options.text
 		const addId = id === '0' ? String(this.auto_increment++) : id
 		this.spinnies.add(addId, options)
-		return {id: addId, ...options}
+		return new SpinnerChild(this, addId)
 	}
 
 	/**
@@ -277,5 +277,101 @@ export class Spinner {
      */
 	#getMessage(message: string, fallback?: string): string {
 		return message || this.preload_message || fallback || ''
+	}
+}
+
+export class SpinnerChild {
+	readonly spinner: Spinner
+
+	readonly id: SpinnerId
+
+	constructor(spinner: Spinner, id: SpinnerId) {
+		this.spinner = spinner
+		this.id = id
+	}
+
+	/**
+     * Set the spinner text
+     */
+	text(message: string): this {
+		this.spinner.text(this.id, message)
+		return this
+	}
+
+	/**
+     * Update the spinner
+     */
+	update(options: SpinnerOptions): this {
+		this.spinner.update(this.id, options)
+		return this
+	}
+
+	/**
+     * Update the status of the spinner
+     */
+	status(status: SpinnerStatus): this {
+		this.spinner.status(this.id, status)
+		return this
+	}
+
+	/**
+     * Start the spinner
+     */
+	start(message: string): this
+	start(options: SpinnerOptions): this
+	start(optionsOrMessage: SpinnerOptions | string): this {
+		this.spinner.start(this.id, optionsOrMessage as any)
+		return this
+	}
+
+	/**
+     * Remove a spinner
+     */
+	remove(): void {
+		this.spinner.remove(this.id)
+	}
+
+	isActive(): boolean {
+		return this.spinner.isActive(this.id)
+	}
+
+	/**
+     * Fail and stop the spinner
+     */
+	fail(message: string): this
+	fail(options: SpinnerOptions): this
+	fail(optionsOrMessage: SpinnerOptions | string): this {
+		this.spinner.fail(this.id, optionsOrMessage as any)
+		return this
+	}
+
+	/**
+     * Error and stop the spinner
+     */
+	error(message: string): this
+	error(options: SpinnerOptions): this
+	error(optionsOrMessage: SpinnerOptions | string): this {
+		this.fail(optionsOrMessage as any)
+		return this
+	}
+
+	/**
+     * Stop the spinner
+     */
+	stop(message: string): this
+	stop(options: SpinnerOptions): this
+	stop(optionsOrMessage: SpinnerOptions | string): this {
+		this.spinner.stop(this.id, optionsOrMessage as any)
+		return this
+	}
+
+	/**
+     * Succeed and stop the spinner
+     */
+	finish(message: string): this
+	finish(options: SpinnerOptions): this
+	finish(optionsOrMessage: SpinnerOptions | string): this {
+		this.spinner.finish(this.id, optionsOrMessage as any)
+		return this
 	}
 }
