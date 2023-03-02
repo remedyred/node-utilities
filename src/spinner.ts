@@ -120,10 +120,9 @@ export class Spinner {
 		this.preload_message ||= options.text
 		if (this.spinnies.pick(id)) {
 			this.status(id, 'spinning')
-		} else {
-			this.spinnies.add(id, options)
+			return this
 		}
-		return this
+		return this.add(id, options)
 	}
 
 	/**
