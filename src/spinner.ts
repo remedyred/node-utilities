@@ -110,11 +110,11 @@ export class Spinner {
 	/**
      * Start the spinner
      */
-	start(message: string): SpinnerChild | this
+	start(message?: string): SpinnerChild | this
 	start(options: SpinnerOptions): SpinnerChild | this
 	start(id: SpinnerId, message: string): SpinnerChild | this
 	start(id: SpinnerId, options: SpinnerOptions): SpinnerChild | this
-	start(optionsOrIdOrMessage: SpinnerId | SpinnerOptions, possibleOptionsOrMessage?: SpinnerOptions | string): SpinnerChild | this {
+	start(optionsOrIdOrMessage?: SpinnerId | SpinnerOptions, possibleOptionsOrMessage?: SpinnerOptions | string): SpinnerChild | this {
 		const {id, options} = this.#parseParams(optionsOrIdOrMessage, possibleOptionsOrMessage)
 
 		this.preload_message ||= options.text
@@ -173,10 +173,10 @@ export class Spinner {
 	/**
      * Fail and stop the spinner
      */
-	fail(message: string): this
+	fail(message?: string): this
 	fail(options: SpinnerOptions): this
 	fail(id: SpinnerId, options?: SpinnerOptions): this
-	fail(optionsOrIdOrMessage: SpinnerId | SpinnerOptions, possibleOptions?: SpinnerOptions): this {
+	fail(optionsOrIdOrMessage?: SpinnerId | SpinnerOptions, possibleOptions?: SpinnerOptions): this {
 		const {id, options} = this.#parseParams(optionsOrIdOrMessage, possibleOptions)
 
 		if (this.spinnies) {
@@ -190,20 +190,20 @@ export class Spinner {
 	/**
      * Error and stop the spinner
      */
-	error(message: string): this
+	error(message?: string): this
 	error(options: SpinnerOptions): this
 	error(id: SpinnerId, options?: SpinnerOptions): this
-	error(optionsOrIdOrMessage: SpinnerId | SpinnerOptions, possibleOptions?: SpinnerOptions): this {
+	error(optionsOrIdOrMessage?: SpinnerId | SpinnerOptions, possibleOptions?: SpinnerOptions): this {
 		return this.fail(optionsOrIdOrMessage as any, possibleOptions)
 	}
 
 	/**
      * Stop the spinner
      */
-	stop(message: string): this
+	stop(message?: string): this
 	stop(options: SpinnerOptions): this
 	stop(id: SpinnerId, options?: SpinnerOptions): this
-	stop(optionsOrIdOrMessage: SpinnerId | SpinnerOptions, possibleOptions?: SpinnerOptions): this {
+	stop(optionsOrIdOrMessage?: SpinnerId | SpinnerOptions, possibleOptions?: SpinnerOptions): this {
 		const {id, options} = this.#parseParams(optionsOrIdOrMessage, possibleOptions)
 
 		if (this.spinnies.pick(id)) {
@@ -217,10 +217,10 @@ export class Spinner {
 	/**
      * Succeed and stop the spinner
      */
-	finish(message: string): this
+	finish(message?: string): this
 	finish(options: SpinnerOptions): this
 	finish(id: SpinnerId, options?: SpinnerOptions): this
-	finish(optionsOrIdOrMessage: SpinnerId | SpinnerOptions, possibleOptions?: SpinnerOptions): this {
+	finish(optionsOrIdOrMessage?: SpinnerId | SpinnerOptions, possibleOptions?: SpinnerOptions): this {
 		const {id, options} = this.#parseParams(optionsOrIdOrMessage, possibleOptions)
 
 		if (this.spinnies) {
@@ -237,7 +237,7 @@ export class Spinner {
      * @param possibleOptionsOrMessage
      * @private
      */
-	#parseParams(optionsOrIdOrMessage: SpinnerId | SpinnerOptions, possibleOptionsOrMessage?: SpinnerOptions | string) {
+	#parseParams(optionsOrIdOrMessage?: SpinnerId | SpinnerOptions, possibleOptionsOrMessage?: SpinnerOptions | string) {
 		let options: SpinnerOptions
 		let id = '0'
 		if (isNumber(optionsOrIdOrMessage)) {
@@ -316,9 +316,9 @@ export class SpinnerChild {
 	/**
      * Start the spinner
      */
-	start(message: string): this
+	start(message?: string): this
 	start(options: SpinnerOptions): this
-	start(optionsOrMessage: SpinnerOptions | string): this {
+	start(optionsOrMessage?: SpinnerOptions | string): this {
 		this.spinner.start(this.id, optionsOrMessage as any)
 		return this
 	}
@@ -337,9 +337,9 @@ export class SpinnerChild {
 	/**
      * Fail and stop the spinner
      */
-	fail(message: string): this
+	fail(message?: string): this
 	fail(options: SpinnerOptions): this
-	fail(optionsOrMessage: SpinnerOptions | string): this {
+	fail(optionsOrMessage?: SpinnerOptions | string): this {
 		this.spinner.fail(this.id, optionsOrMessage as any)
 		return this
 	}
@@ -347,9 +347,9 @@ export class SpinnerChild {
 	/**
      * Error and stop the spinner
      */
-	error(message: string): this
+	error(message?: string): this
 	error(options: SpinnerOptions): this
-	error(optionsOrMessage: SpinnerOptions | string): this {
+	error(optionsOrMessage?: SpinnerOptions | string): this {
 		this.fail(optionsOrMessage as any)
 		return this
 	}
@@ -357,9 +357,9 @@ export class SpinnerChild {
 	/**
      * Stop the spinner
      */
-	stop(message: string): this
+	stop(message?: string): this
 	stop(options: SpinnerOptions): this
-	stop(optionsOrMessage: SpinnerOptions | string): this {
+	stop(optionsOrMessage?: SpinnerOptions | string): this {
 		this.spinner.stop(this.id, optionsOrMessage as any)
 		return this
 	}
@@ -367,9 +367,9 @@ export class SpinnerChild {
 	/**
      * Succeed and stop the spinner
      */
-	finish(message: string): this
+	finish(message?: string): this
 	finish(options: SpinnerOptions): this
-	finish(optionsOrMessage: SpinnerOptions | string): this {
+	finish(optionsOrMessage?: SpinnerOptions | string): this {
 		this.spinner.finish(this.id, optionsOrMessage as any)
 		return this
 	}
