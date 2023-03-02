@@ -10,7 +10,7 @@ const spinnerUpdate = throttle((instance, id, options) => {
 }, 150)
 
 export interface SpinnerConfig extends BaseSpinnerOptions {
-	auto_increment: number
+    auto_increment: number
 }
 
 export type SpinnerOptions = Partial<SpinnerConfig>
@@ -115,7 +115,7 @@ export class Spinner {
 		const {id, options} = this.#parseParams(optionsOrIdOrMessage, possibleOptionsOrMessage)
 
 		if (this.spinnies.pick(id)) {
-			this.status(id, 'spinning')
+			this.update(id, {...options, status: 'spinning'})
 			return this
 		}
 		return this.add(id, options)
