@@ -1,3 +1,30 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## @snickbit/node-utilities [4.7.0](https://github.com/remedyred/snickbit.js/compare/@snickbit/node-utilities@4.6.0...@snickbit/node-utilities@4.7.0) (2023-03-03)
+
+
+### Features
+
+* create spinner package ([#118](https://github.com/remedyred/snickbit.js/issues/118)) ([ad7d670](https://github.com/remedyred/snickbit.js/commit/ad7d6704044bb67b74d63b2a5615514d99c5ce9a))
+
+
+### Bug Fixes
+
+* improve text and option configurations ([22a0ae8](https://github.com/remedyred/snickbit.js/commit/22a0ae8c2a33437c6c64181352689aad3047798f))
+* remove depcheck ([#119](https://github.com/remedyred/snickbit.js/issues/119)) ([0fb970f](https://github.com/remedyred/snickbit.js/commit/0fb970fe23d85f4e678fbdca577c877b059a86fb))
+* set Spinnies text correctly during init ([c84f510](https://github.com/remedyred/snickbit.js/commit/c84f510c31f73eb2a0f221aad5ea16b86e051205))
+* update options during start ([5e8146c](https://github.com/remedyred/snickbit.js/commit/5e8146c7c082f95aa02afae474d6a9224312499c))
+* use pick to check for spinner existence. ([b95a26a](https://github.com/remedyred/snickbit.js/commit/b95a26abfbef5966b8701f438aa7bb62922b63be))
+
+
+
+### Dependencies
+
+* **@snickbit/utilities:** upgraded to 3.4.19
+
 # Change Log
 
 All notable changes to this project will be documented in this file.
