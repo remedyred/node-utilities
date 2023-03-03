@@ -188,7 +188,7 @@ ___
 
 #### Type declaration
 
-▸ (...`args`): `Promise`<`Results`\> \| `Results`
+▸ (`...args`): `Promise`<`Results`\> \| `Results`
 
 ##### Parameters
 

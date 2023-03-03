@@ -144,7 +144,7 @@ ___
 
 ### fail
 
-▸ **fail**(...`messages`): [`MultiProgress`](MultiProgress.md)
+▸ **fail**(`...messages`): [`MultiProgress`](MultiProgress.md)
 
 Fail and stop the progress bar
 
@@ -166,7 +166,7 @@ ___
 
 ### finish
 
-▸ **finish**(...`messages`): [`MultiProgress`](MultiProgress.md)
+▸ **finish**(`...messages`): [`MultiProgress`](MultiProgress.md)
 
 Succeed and stop the progress bar
 
@@ -295,7 +295,7 @@ ___
 
 ### stop
 
-▸ **stop**(...`messages`): [`MultiProgress`](MultiProgress.md)
+▸ **stop**(`...messages`): [`MultiProgress`](MultiProgress.md)
 
 Stop all child progress bars
 

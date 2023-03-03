@@ -83,7 +83,7 @@ ___
 
 ### fail
 
-▸ **fail**(...`messages`): [`Progress`](Progress.md)
+▸ **fail**(`...messages`): [`Progress`](Progress.md)
 
 Fail and stop the progress bar
 
@@ -101,7 +101,7 @@ ___
 
 ### finish
 
-▸ **finish**(...`messages`): [`Progress`](Progress.md)
+▸ **finish**(`...messages`): [`Progress`](Progress.md)
 
 Succeed and stop the progress bar
 
@@ -192,7 +192,7 @@ ___
 
 ### stop
 
-▸ **stop**(...`messages`): [`Progress`](Progress.md)
+▸ **stop**(`...messages`): [`Progress`](Progress.md)
 
 Stop the progress bar
 

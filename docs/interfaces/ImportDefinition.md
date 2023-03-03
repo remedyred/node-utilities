@@ -18,7 +18,7 @@
 
 ### ImportDefinition
 
-▸ **ImportDefinition**(...`args`): `Results` \| `Promise`<`Results`\>
+▸ **ImportDefinition**(`...args`): `Results` \| `Promise`<`Results`\>
 
 #### Parameters
 
