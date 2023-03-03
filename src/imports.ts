@@ -58,11 +58,11 @@ export function parseImports<I extends ImportMethod = ImportMethod>(imports: Raw
 		let parent_name = parent ?? ''
 		let import_name: string
 
-		if (import_item !== 'default') {
-			import_name = import_item
-		} else {
+		if (import_item === 'default') {
 			import_name = parent_name
 			parent_name = ''
+		} else {
+			import_name = import_item
 		}
 
 		if (isImport(data) || isImportDefinition(data)) {
