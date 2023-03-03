@@ -2,10 +2,6 @@
 
 ## Table of contents
 
-### Modules Classes
-
-- [SpinnerChild](classes/SpinnerChild.md)
-
 ### Progress Classes
 
 - [MultiProgress](classes/MultiProgress.md)
@@ -28,7 +24,6 @@
 
 - [AutoCompleteQuestion](interfaces/AutoCompleteQuestion.md)
 - [MultiProgressChildConfig](interfaces/MultiProgressChildConfig.md)
-- [SpinnerConfig](interfaces/SpinnerConfig.md)
 - [UnparsedImport](interfaces/UnparsedImport.md)
 
 ### Progress Interfaces
@@ -53,6 +48,10 @@
 - [TextQuestion](interfaces/TextQuestion.md)
 - [ToggleQuestion](interfaces/ToggleQuestion.md)
 
+### Spinner Interfaces
+
+- [SpinnerConfig](interfaces/SpinnerConfig.md)
+
 ### Imports Type Aliases
 
 - [ImportRecords](README.md#importrecords)
@@ -66,7 +65,6 @@
 - [ProgressOptions](README.md#progressoptions)
 - [ProgressPayload](README.md#progresspayload)
 - [RawImports](README.md#rawimports)
-- [SpinnerOptions](README.md#spinneroptions)
 
 ### Progress Type Aliases
 
@@ -82,6 +80,10 @@
 - [PromptsMethod](README.md#promptsmethod)
 - [Question](README.md#question)
 - [QuestionRecords](README.md#questionrecords)
+
+### Spinner Type Aliases
+
+- [SpinnerOptions](README.md#spinneroptions)
 
 ### Environment Variables
 
@@ -242,12 +244,6 @@ ___
 
 ___
 
-### SpinnerOptions
-
-Ƭ **SpinnerOptions**: `Partial`<[`SpinnerConfig`](interfaces/SpinnerConfig.md)\>
-
-___
-
 ## Progress Type Aliases
 
 ### MultiProgressBars
@@ -319,6 +315,14 @@ ___
 ### QuestionRecords
 
 Ƭ **QuestionRecords**: `Record`<`string`, [`Question`](README.md#question)\>
+
+___
+
+## Spinner Type Aliases
+
+### SpinnerOptions
+
+Ƭ **SpinnerOptions**: `Partial`<[`SpinnerConfig`](interfaces/SpinnerConfig.md)\>
 
 ## Environment Variables
 
@@ -887,32 +891,24 @@ ___
 
 ### spinner
 
-▸ **spinner**(`message?`): `any`
+▸ **spinner**(`options?`): [`Spinner`](classes/Spinner.md)
 
-Spinner. Uses Spinnies to show spinners in the terminal.
+Spinner. Uses nanospinner to show spinners in the terminal.
 
 **`See`**
 
-https://www.npmjs.com/package/@trufflesuite/spinnies
+https://github.com/usmanyunusov/nanospinner
+
+**`Deprecated`**
+
+use @snickbit/spinner instead
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `message?` | `string` |
+| `options?` | `string` \| `Partial`<[`SpinnerConfig`](interfaces/SpinnerConfig.md)\> |
 
 #### Returns
 
-`any`
-
-▸ **spinner**(`options`): `any`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options` | `Partial`<[`SpinnerConfig`](interfaces/SpinnerConfig.md)\> |
-
-#### Returns
-
-`any`
+[`Spinner`](classes/Spinner.md)

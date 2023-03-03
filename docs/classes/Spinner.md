@@ -1,10 +1,14 @@
 # Class: Spinner
 
-Spinner. Uses Spinnies to show spinners in the terminal.
+Spinner. Uses nanospinner to show spinners in the terminal.
 
 **`See`**
 
-https://www.npmjs.com/package/@trufflesuite/spinnies
+https://github.com/usmanyunusov/nanospinner
+
+**`Deprecated`**
+
+use @snickbit/spinner instead
 
 ## Table of contents
 
@@ -14,24 +18,17 @@ https://www.npmjs.com/package/@trufflesuite/spinnies
 
 ### Properties
 
-- [auto\_increment](Spinner.md#auto_increment)
 - [out](Spinner.md#out)
-- [spinnies](Spinner.md#spinnies)
+- [preload\_message](Spinner.md#preload_message)
+- [spinner](Spinner.md#spinner)
 
 ### Methods
 
-- [add](Spinner.md#add)
-- [autoIncrement](Spinner.md#autoincrement)
 - [error](Spinner.md#error)
 - [fail](Spinner.md#fail)
 - [finish](Spinner.md#finish)
-- [get](Spinner.md#get)
-- [isActive](Spinner.md#isactive)
-- [remove](Spinner.md#remove)
 - [start](Spinner.md#start)
-- [status](Spinner.md#status)
 - [stop](Spinner.md#stop)
-- [stopAll](Spinner.md#stopall)
 - [text](Spinner.md#text)
 - [update](Spinner.md#update)
 
@@ -45,23 +42,9 @@ https://www.npmjs.com/package/@trufflesuite/spinnies
 
 | Name | Type |
 | :------ | :------ |
-| `options?` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
-
-• **new Spinner**(`message`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `message` | `string` |
+| `options?` | `string` \| `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
 
 ## Properties
-
-### auto\_increment
-
-• **auto\_increment**: `number` = `0`
-
-___
 
 ### out
 
@@ -69,87 +52,21 @@ ___
 
 ___
 
-### spinnies
+### preload\_message
 
-• **spinnies**: `Spinnies`
+• **preload\_message**: `string` = `''`
+
+___
+
+### spinner
+
+• **spinner**: `any`
 
 ## Methods
 
-### add
-
-▸ **add**(`message?`): [`SpinnerChild`](SpinnerChild.md)
-
-Add a spinner
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `message?` | `string` |
-
-#### Returns
-
-[`SpinnerChild`](SpinnerChild.md)
-
-▸ **add**(`id`, `message?`): [`SpinnerChild`](SpinnerChild.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `SpinnerId` |
-| `message?` | `string` |
-
-#### Returns
-
-[`SpinnerChild`](SpinnerChild.md)
-
-▸ **add**(`options`): [`SpinnerChild`](SpinnerChild.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
-
-#### Returns
-
-[`SpinnerChild`](SpinnerChild.md)
-
-▸ **add**(`id`, `options`): [`SpinnerChild`](SpinnerChild.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `SpinnerId` |
-| `options` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
-
-#### Returns
-
-[`SpinnerChild`](SpinnerChild.md)
-
-___
-
-### autoIncrement
-
-▸ **autoIncrement**(`auto_increment`): [`Spinner`](Spinner.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `auto_increment` | `number` |
-
-#### Returns
-
-[`Spinner`](Spinner.md)
-
-___
-
 ### error
 
-▸ **error**(`message?`): [`Spinner`](Spinner.md)
+▸ **error**(`options?`): [`Spinner`](Spinner.md)
 
 Error and stop the spinner
 
@@ -157,32 +74,7 @@ Error and stop the spinner
 
 | Name | Type |
 | :------ | :------ |
-| `message?` | `string` |
-
-#### Returns
-
-[`Spinner`](Spinner.md)
-
-▸ **error**(`options`): [`Spinner`](Spinner.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
-
-#### Returns
-
-[`Spinner`](Spinner.md)
-
-▸ **error**(`id`, `options?`): [`Spinner`](Spinner.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `SpinnerId` |
-| `options?` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
+| `options?` | `string` \| `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
 
 #### Returns
 
@@ -192,7 +84,7 @@ ___
 
 ### fail
 
-▸ **fail**(`message?`): [`Spinner`](Spinner.md)
+▸ **fail**(`options?`): [`Spinner`](Spinner.md)
 
 Fail and stop the spinner
 
@@ -200,45 +92,7 @@ Fail and stop the spinner
 
 | Name | Type |
 | :------ | :------ |
-| `message?` | `string` |
-
-#### Returns
-
-[`Spinner`](Spinner.md)
-
-▸ **fail**(`id`, `message?`): [`Spinner`](Spinner.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `SpinnerId` |
-| `message?` | `string` |
-
-#### Returns
-
-[`Spinner`](Spinner.md)
-
-▸ **fail**(`options`): [`Spinner`](Spinner.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
-
-#### Returns
-
-[`Spinner`](Spinner.md)
-
-▸ **fail**(`id`, `options`): [`Spinner`](Spinner.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `SpinnerId` |
-| `options` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
+| `options?` | `string` \| `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
 
 #### Returns
 
@@ -248,7 +102,7 @@ ___
 
 ### finish
 
-▸ **finish**(`message?`): [`Spinner`](Spinner.md)
+▸ **finish**(`options?`): [`Spinner`](Spinner.md)
 
 Succeed and stop the spinner
 
@@ -256,97 +110,7 @@ Succeed and stop the spinner
 
 | Name | Type |
 | :------ | :------ |
-| `message?` | `string` |
-
-#### Returns
-
-[`Spinner`](Spinner.md)
-
-▸ **finish**(`id`, `message?`): [`Spinner`](Spinner.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `SpinnerId` |
-| `message?` | `string` |
-
-#### Returns
-
-[`Spinner`](Spinner.md)
-
-▸ **finish**(`options`): [`Spinner`](Spinner.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
-
-#### Returns
-
-[`Spinner`](Spinner.md)
-
-▸ **finish**(`id`, `options`): [`Spinner`](Spinner.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `SpinnerId` |
-| `options` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
-
-#### Returns
-
-[`Spinner`](Spinner.md)
-
-___
-
-### get
-
-▸ **get**(`id`): `any`
-
-Get a spinner
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `SpinnerId` |
-
-#### Returns
-
-`any`
-
-___
-
-### isActive
-
-▸ **isActive**(`id?`): `boolean`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `id?` | `SpinnerId` |
-
-#### Returns
-
-`boolean`
-
-___
-
-### remove
-
-▸ **remove**(`id`): [`Spinner`](Spinner.md)
-
-Remove a spinner
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `SpinnerId` |
+| `options?` | `string` \| `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
 
 #### Returns
 
@@ -356,7 +120,7 @@ ___
 
 ### start
 
-▸ **start**(`message?`): [`Spinner`](Spinner.md) \| [`SpinnerChild`](SpinnerChild.md)
+▸ **start**(`options?`): [`Spinner`](Spinner.md)
 
 Start the spinner
 
@@ -364,76 +128,7 @@ Start the spinner
 
 | Name | Type |
 | :------ | :------ |
-| `message?` | `string` |
-
-#### Returns
-
-[`Spinner`](Spinner.md) \| [`SpinnerChild`](SpinnerChild.md)
-
-▸ **start**(`id`, `message?`): [`Spinner`](Spinner.md) \| [`SpinnerChild`](SpinnerChild.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `SpinnerId` |
-| `message?` | `string` |
-
-#### Returns
-
-[`Spinner`](Spinner.md) \| [`SpinnerChild`](SpinnerChild.md)
-
-▸ **start**(`options`): [`Spinner`](Spinner.md) \| [`SpinnerChild`](SpinnerChild.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
-
-#### Returns
-
-[`Spinner`](Spinner.md) \| [`SpinnerChild`](SpinnerChild.md)
-
-▸ **start**(`id`, `options`): [`Spinner`](Spinner.md) \| [`SpinnerChild`](SpinnerChild.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `SpinnerId` |
-| `options` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
-
-#### Returns
-
-[`Spinner`](Spinner.md) \| [`SpinnerChild`](SpinnerChild.md)
-
-___
-
-### status
-
-▸ **status**(`status`): [`Spinner`](Spinner.md)
-
-Update the status of the spinner
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `status` | `SpinnerStatus` |
-
-#### Returns
-
-[`Spinner`](Spinner.md)
-
-▸ **status**(`id`, `status`): [`Spinner`](Spinner.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `SpinnerId` |
-| `status` | `SpinnerStatus` |
+| `options?` | `string` \| `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
 
 #### Returns
 
@@ -443,7 +138,7 @@ ___
 
 ### stop
 
-▸ **stop**(`message?`): [`Spinner`](Spinner.md)
+▸ **stop**(`options?`): [`Spinner`](Spinner.md)
 
 Stop the spinner
 
@@ -451,57 +146,7 @@ Stop the spinner
 
 | Name | Type |
 | :------ | :------ |
-| `message?` | `string` |
-
-#### Returns
-
-[`Spinner`](Spinner.md)
-
-▸ **stop**(`id`, `message?`): [`Spinner`](Spinner.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `SpinnerId` |
-| `message?` | `string` |
-
-#### Returns
-
-[`Spinner`](Spinner.md)
-
-▸ **stop**(`options`): [`Spinner`](Spinner.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
-
-#### Returns
-
-[`Spinner`](Spinner.md)
-
-▸ **stop**(`id`, `options`): [`Spinner`](Spinner.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `SpinnerId` |
-| `options` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
-
-#### Returns
-
-[`Spinner`](Spinner.md)
-
-___
-
-### stopAll
-
-▸ **stopAll**(): [`Spinner`](Spinner.md)
-
-Stop all spinners
+| `options?` | `string` \| `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
 
 #### Returns
 
@@ -525,19 +170,6 @@ Set the spinner text
 
 [`Spinner`](Spinner.md)
 
-▸ **text**(`id`, `message`): [`Spinner`](Spinner.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `SpinnerId` |
-| `message` | `string` |
-
-#### Returns
-
-[`Spinner`](Spinner.md)
-
 ___
 
 ### update
@@ -550,20 +182,7 @@ Update the spinner
 
 | Name | Type |
 | :------ | :------ |
-| `options` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
-
-#### Returns
-
-[`Spinner`](Spinner.md)
-
-▸ **update**(`id`, `options?`): [`Spinner`](Spinner.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `SpinnerId` |
-| `options?` | `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
+| `options` | `string` \| `Partial`<[`SpinnerConfig`](../interfaces/SpinnerConfig.md)\> |
 
 #### Returns
 
