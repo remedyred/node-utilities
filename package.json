@@ -17,7 +17,6 @@
 	"scripts": {
 		"build": "tsup --minify",
 		"clean": "shx rm -rf ./dist",
-		"depcheck": "depcheck",
 		"dev": "tsup",
 		"docs": "typedoc src/index.ts --tsconfig ./tsconfig.typedoc.json",
 		"release": "semantic-release",
