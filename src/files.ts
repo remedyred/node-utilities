@@ -81,8 +81,13 @@ export const getFileJson = getFileJSON
 /** @category Files */
 export interface FindUpOptions {
 	distance: number
-	d: number
 	cwd: string
+
+	/**
+	 * Used for tracking current distance
+	 * @internal
+	 */
+	d: number
 }
 
 /** @category Files */
