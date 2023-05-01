@@ -19,7 +19,7 @@ if (!fs.existsSync(temp_dir)) {
 }
 
 /** @category Environment */
-export const app_data_dir: string = process.env.APPDATA || (process.platform === 'darwin' ? `${process.env.HOME}/Library/Preferences` : `${process.env.HOME}/.local/share`)
+export const app_data_dir: string = process.env.APPDATA || (platform === 'darwin' ? `${process.env.HOME}/Library/Preferences` : `${process.env.HOME}/.local/share`)
 
 /** @category Environment */
 export const user_config_dir = `${os.homedir()}/.config`
