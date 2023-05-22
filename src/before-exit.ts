@@ -4,6 +4,7 @@ let _emitter
 
 /** @internal */
 function useEmitter() {
+	// eslint-disable-next-line unicorn/prefer-event-target
 	_emitter ||= new EventEmitter()
 	return _emitter
 }
