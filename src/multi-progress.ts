@@ -88,17 +88,26 @@ export interface MultiProgressChildConfig extends ProgressConfig {
 export type MultiProgressChildOptions = Partial<MultiProgressChildConfig>
 
 /**
- * @internal
+ * Multi-progress child bar
+ * @category Progress
  */
 export class MultiProgressChild extends Progress {
 	id: string
 
 	declare options: MultiProgressChildConfig
 
+	/**
+	 * @param options
+	 * @internal
+	 */
 	constructor(options?: MultiProgressChildOptions) {
 		super(options)
 	}
 
+	/**
+	 * @private
+	 * @internal
+	 */
 	#create() {
 		if (!this.out.isVerbose()) {
 			this.bar = _instances[this.options.parent].create()
@@ -107,6 +116,7 @@ export class MultiProgressChild extends Progress {
 
 	/**
 	 * Remove this child progress bar
+	 * @internal
 	 */
 	remove() {
 		if (_instances[this.options.parent]) {

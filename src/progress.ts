@@ -19,7 +19,7 @@ export type ProgressOptions = Partial<ProgressConfig>
 
 export type ProgressPayload = Record<string, any>
 
-interface CLIProgressOptions {
+export interface CLIProgressOptions {
 	format: any
 	etaBuffer: number
 	fps: number
