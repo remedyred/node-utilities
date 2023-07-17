@@ -5,6 +5,7 @@
 ### Progress Classes
 
 - [MultiProgress](classes/MultiProgress.md)
+- [MultiProgressChild](classes/MultiProgressChild.md)
 - [Progress](classes/Progress.md)
 
 ### Spinner Classes
@@ -23,6 +24,7 @@
 ### Modules Interfaces
 
 - [AutoCompleteQuestion](interfaces/AutoCompleteQuestion.md)
+- [CLIProgressOptions](interfaces/CLIProgressOptions.md)
 - [MultiProgressChildConfig](interfaces/MultiProgressChildConfig.md)
 - [UnparsedImport](interfaces/UnparsedImport.md)
 
@@ -248,7 +250,7 @@ ___
 
 ### MultiProgressBars
 
-Ƭ **MultiProgressBars**: `Record`<`string`, `MultiProgressChild`\>
+Ƭ **MultiProgressBars**: `Record`<`string`, [`MultiProgressChild`](classes/MultiProgressChild.md)\>
 
 ___
 

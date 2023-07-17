@@ -1,62 +1,34 @@
-# Class: MultiProgress
+# Class: MultiProgressChild
 
-Multi-Progress bar. Uses cli-progress to create multiple progress bars.
-
-**`See`**
-
-https://github.com/npkgz/cli-progress
+Multi-progress child bar
 
 ## Hierarchy
 
 - [`Progress`](Progress.md)
 
-  ↳ **`MultiProgress`**
+  ↳ **`MultiProgressChild`**
 
 ## Table of contents
 
-### Constructors
-
-- [constructor](MultiProgress.md#constructor)
-
 ### Properties
 
-- [bar](MultiProgress.md#bar)
-- [bars](MultiProgress.md#bars)
-- [id](MultiProgress.md#id)
-- [multibar](MultiProgress.md#multibar)
-- [options](MultiProgress.md#options)
-- [out](MultiProgress.md#out)
+- [bar](MultiProgressChild.md#bar)
+- [id](MultiProgressChild.md#id)
+- [options](MultiProgressChild.md#options)
+- [out](MultiProgressChild.md#out)
 
 ### Methods
 
-- [create](MultiProgress.md#create)
-- [eta](MultiProgress.md#eta)
-- [fail](MultiProgress.md#fail)
-- [finish](MultiProgress.md#finish)
-- [message](MultiProgress.md#message)
-- [remove](MultiProgress.md#remove)
-- [set](MultiProgress.md#set)
-- [setTotal](MultiProgress.md#settotal)
-- [start](MultiProgress.md#start)
-- [stop](MultiProgress.md#stop)
-- [tick](MultiProgress.md#tick)
-- [update](MultiProgress.md#update)
-
-## Constructors
-
-### constructor
-
-• **new MultiProgress**(`options?`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Partial`<[`ProgressConfig`](../interfaces/ProgressConfig.md)\> |
-
-#### Overrides
-
-[Progress](Progress.md).[constructor](Progress.md#constructor)
+- [eta](MultiProgressChild.md#eta)
+- [fail](MultiProgressChild.md#fail)
+- [finish](MultiProgressChild.md#finish)
+- [message](MultiProgressChild.md#message)
+- [set](MultiProgressChild.md#set)
+- [setTotal](MultiProgressChild.md#settotal)
+- [start](MultiProgressChild.md#start)
+- [stop](MultiProgressChild.md#stop)
+- [tick](MultiProgressChild.md#tick)
+- [update](MultiProgressChild.md#update)
 
 ## Properties
 
@@ -70,29 +42,17 @@ https://github.com/npkgz/cli-progress
 
 ___
 
-### bars
-
-• **bars**: [`MultiProgressBars`](../README.md#multiprogressbars)
-
-___
-
 ### id
 
 • **id**: `string`
 
 ___
 
-### multibar
-
-• **multibar**: `MultiBar`
-
-___
-
 ### options
 
-• **options**: [`ProgressConfig`](../interfaces/ProgressConfig.md)
+• **options**: [`MultiProgressChildConfig`](../interfaces/MultiProgressChildConfig.md)
 
-#### Inherited from
+#### Overrides
 
 [Progress](Progress.md).[options](Progress.md#options)
 
@@ -107,24 +67,6 @@ ___
 [Progress](Progress.md).[out](Progress.md#out)
 
 ## Methods
-
-### create
-
-▸ **create**(`options?`): [`MultiProgressChild`](MultiProgressChild.md)
-
-Create a child progress bar
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Partial`<[`ProgressConfig`](../interfaces/ProgressConfig.md)\> |
-
-#### Returns
-
-[`MultiProgressChild`](MultiProgressChild.md)
-
-___
 
 ### eta
 
@@ -144,7 +86,7 @@ ___
 
 ### fail
 
-▸ **fail**(`...messages`): [`MultiProgress`](MultiProgress.md)
+▸ **fail**(`...messages`): [`MultiProgressChild`](MultiProgressChild.md)
 
 Fail and stop the progress bar
 
@@ -156,7 +98,7 @@ Fail and stop the progress bar
 
 #### Returns
 
-[`MultiProgress`](MultiProgress.md)
+[`MultiProgressChild`](MultiProgressChild.md)
 
 #### Inherited from
 
@@ -166,7 +108,7 @@ ___
 
 ### finish
 
-▸ **finish**(`...messages`): [`MultiProgress`](MultiProgress.md)
+▸ **finish**(`...messages`): [`MultiProgressChild`](MultiProgressChild.md)
 
 Succeed and stop the progress bar
 
@@ -178,7 +120,7 @@ Succeed and stop the progress bar
 
 #### Returns
 
-[`MultiProgress`](MultiProgress.md)
+[`MultiProgressChild`](MultiProgressChild.md)
 
 #### Inherited from
 
@@ -188,7 +130,7 @@ ___
 
 ### message
 
-▸ **message**(`message`): [`MultiProgress`](MultiProgress.md)
+▸ **message**(`message`): [`MultiProgressChild`](MultiProgressChild.md)
 
 Set the progress bar message
 
@@ -200,29 +142,11 @@ Set the progress bar message
 
 #### Returns
 
-[`MultiProgress`](MultiProgress.md)
+[`MultiProgressChild`](MultiProgressChild.md)
 
 #### Inherited from
 
 [Progress](Progress.md).[message](Progress.md#message)
-
-___
-
-### remove
-
-▸ **remove**(`instance`): [`MultiProgress`](MultiProgress.md)
-
-Remove a child progress bar
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `instance` | [`MultiProgressChild`](MultiProgressChild.md) |
-
-#### Returns
-
-[`MultiProgress`](MultiProgress.md)
 
 ___
 
@@ -251,7 +175,7 @@ ___
 
 ### setTotal
 
-▸ **setTotal**(`total`): [`MultiProgress`](MultiProgress.md)
+▸ **setTotal**(`total`): [`MultiProgressChild`](MultiProgressChild.md)
 
 Set the progress bar total
 
@@ -263,7 +187,7 @@ Set the progress bar total
 
 #### Returns
 
-[`MultiProgress`](MultiProgress.md)
+[`MultiProgressChild`](MultiProgressChild.md)
 
 #### Inherited from
 
@@ -273,7 +197,7 @@ ___
 
 ### start
 
-▸ **start**(`options?`): [`MultiProgress`](MultiProgress.md)
+▸ **start**(`options?`): [`MultiProgressChild`](MultiProgressChild.md)
 
 Start the progress bar
 
@@ -285,7 +209,7 @@ Start the progress bar
 
 #### Returns
 
-[`MultiProgress`](MultiProgress.md)
+[`MultiProgressChild`](MultiProgressChild.md)
 
 #### Inherited from
 
@@ -295,9 +219,9 @@ ___
 
 ### stop
 
-▸ **stop**(`...messages`): [`MultiProgress`](MultiProgress.md)
+▸ **stop**(`...messages`): [`MultiProgressChild`](MultiProgressChild.md)
 
-Stop all child progress bars
+Stop the progress bar
 
 #### Parameters
 
@@ -307,9 +231,9 @@ Stop all child progress bars
 
 #### Returns
 
-[`MultiProgress`](MultiProgress.md)
+[`MultiProgressChild`](MultiProgressChild.md)
 
-#### Overrides
+#### Inherited from
 
 [Progress](Progress.md).[stop](Progress.md#stop)
 
@@ -317,7 +241,7 @@ ___
 
 ### tick
 
-▸ **tick**(`payload`): [`MultiProgress`](MultiProgress.md)
+▸ **tick**(`payload`): [`MultiProgressChild`](MultiProgressChild.md)
 
 Tick the progress
 
@@ -329,13 +253,13 @@ Tick the progress
 
 #### Returns
 
-[`MultiProgress`](MultiProgress.md)
+[`MultiProgressChild`](MultiProgressChild.md)
 
 #### Inherited from
 
 [Progress](Progress.md).[tick](Progress.md#tick)
 
-▸ **tick**(`value?`, `payload?`): [`MultiProgress`](MultiProgress.md)
+▸ **tick**(`value?`, `payload?`): [`MultiProgressChild`](MultiProgressChild.md)
 
 #### Parameters
 
@@ -346,13 +270,13 @@ Tick the progress
 
 #### Returns
 
-[`MultiProgress`](MultiProgress.md)
+[`MultiProgressChild`](MultiProgressChild.md)
 
 #### Inherited from
 
 [Progress](Progress.md).[tick](Progress.md#tick)
 
-▸ **tick**(`message`, `payload?`): [`MultiProgress`](MultiProgress.md)
+▸ **tick**(`message`, `payload?`): [`MultiProgressChild`](MultiProgressChild.md)
 
 #### Parameters
 
@@ -363,7 +287,7 @@ Tick the progress
 
 #### Returns
 
-[`MultiProgress`](MultiProgress.md)
+[`MultiProgressChild`](MultiProgressChild.md)
 
 #### Inherited from
 
@@ -373,7 +297,7 @@ ___
 
 ### update
 
-▸ **update**(`payload?`): [`MultiProgress`](MultiProgress.md)
+▸ **update**(`payload?`): [`MultiProgressChild`](MultiProgressChild.md)
 
 Update the progress bar
 
@@ -385,7 +309,7 @@ Update the progress bar
 
 #### Returns
 
-[`MultiProgress`](MultiProgress.md)
+[`MultiProgressChild`](MultiProgressChild.md)
 
 #### Inherited from
 

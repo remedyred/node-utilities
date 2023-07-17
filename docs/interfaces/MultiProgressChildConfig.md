@@ -35,7 +35,7 @@ ___
 
 ### config
 
-• **config**: `Partial`<`CLIProgressOptions`\>
+• **config**: `Partial`<[`CLIProgressOptions`](CLIProgressOptions.md)\>
 
 #### Inherited from
 

@@ -12,6 +12,8 @@ https://github.com/npkgz/cli-progress
 
   ↳ [`MultiProgress`](MultiProgress.md)
 
+  ↳ [`MultiProgressChild`](MultiProgressChild.md)
+
 ## Table of contents
 
 ### Constructors
