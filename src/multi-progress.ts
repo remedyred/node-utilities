@@ -102,6 +102,7 @@ export class MultiProgressChild extends Progress {
 	 */
 	constructor(options?: MultiProgressChildOptions) {
 		super(options)
+		this.id = options?.id || uuid()
 	}
 
 	/**

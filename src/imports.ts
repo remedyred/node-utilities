@@ -77,7 +77,7 @@ export function parseImports<I extends ImportMethod = ImportMethod>(imports: Raw
 			}
 
 			parsed.name = parent_name ? `${parent_name}:${sub_import_name}` : sub_import_name
-			parsed.aliases = arrayUnique([unparsed?.alias, ...unparsed.aliases || []].flat()).filter(Boolean)
+			parsed.aliases = arrayUnique([unparsed?.alias, ...unparsed.aliases || []].flat()).filter(Boolean) as string[]
 			parsed.description = unparsed.description || unparsed.describe
 			const handler = unparsed.handler || unparsed.method || unparsed.run || unparsed.default || unparsed
 			parsed.handler = handler && isCallable(handler) ? handler as I : () => {

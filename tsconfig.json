@@ -30,6 +30,7 @@
 		"target": "esnext"
 	},
 	"include": [
-		"src/**/*.ts"
+		"src/**/*.ts",
+		"tsup.config.ts"
 	]
 }
