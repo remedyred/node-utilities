@@ -6,6 +6,10 @@ Progress bar. Uses cli-progress and @snickbit/out to output progress.
 
 https://github.com/npkgz/cli-progress
 
+**`Deprecated`**
+
+use @snickbit/progress instead
+
 ## Hierarchy
 
 - **`Progress`**

@@ -765,6 +765,10 @@ Multi-Progress bar. Uses cli-progress to create multiple progress bars.
 
 https://github.com/npkgz/cli-progress
 
+**`Deprecated`**
+
+use @snickbit/progress instead
+
 #### Parameters
 
 | Name | Type |
@@ -786,6 +790,10 @@ Progress bar. Uses cli-progress to create multiple progress bars.
 **`See`**
 
 https://github.com/npkgz/cli-progress
+
+**`Deprecated`**
+
+use @snickbit/progress instead
 
 #### Parameters
 

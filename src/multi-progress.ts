@@ -12,6 +12,7 @@ export type MultiProgressBars = Record<string, MultiProgressChild>
  * Multi-Progress bar. Uses cli-progress to create multiple progress bars.
  * @see https://github.com/npkgz/cli-progress
  * @category Progress
+ * @deprecated use @snickbit/progress instead
  */
 export function multiprogress(options?: ProgressOptions): MultiProgress {
 	return new MultiProgress(options)
@@ -21,6 +22,7 @@ export function multiprogress(options?: ProgressOptions): MultiProgress {
  * Multi-Progress bar. Uses cli-progress to create multiple progress bars.
  * @see https://github.com/npkgz/cli-progress
  * @category Progress
+ * @deprecated use @snickbit/progress instead
  */
 export class MultiProgress extends Progress {
 	id: string
@@ -90,6 +92,7 @@ export type MultiProgressChildOptions = Partial<MultiProgressChildConfig>
 /**
  * Multi-progress child bar
  * @category Progress
+ * @deprecated use @snickbit/progress instead
  */
 export class MultiProgressChild extends Progress {
 	id: string

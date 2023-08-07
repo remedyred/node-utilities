@@ -82,6 +82,7 @@ export function makeProgressConfig(options) {
  * Progress bar. Uses cli-progress to create multiple progress bars.
  * @see https://github.com/npkgz/cli-progress
  * @category Progress
+ * @deprecated use @snickbit/progress instead
  */
 export function progress(options?: ProgressOptions) {
 	return new Progress(options)
@@ -91,6 +92,7 @@ export function progress(options?: ProgressOptions) {
  * Progress bar. Uses cli-progress and @snickbit/out to output progress.
  * @see https://github.com/npkgz/cli-progress
  * @category Progress
+ * @deprecated use @snickbit/progress instead
  */
 export class Progress {
 	options: ProgressConfig

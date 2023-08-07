@@ -2,6 +2,10 @@
 
 Multi-progress child bar
 
+**`Deprecated`**
+
+use @snickbit/progress instead
+
 ## Hierarchy
 
 - [`Progress`](Progress.md)
