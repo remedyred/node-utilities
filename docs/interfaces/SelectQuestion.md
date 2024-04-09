@@ -2,7 +2,7 @@
 
 ## Hierarchy
 
-- `BaseQuestion`<`number` \| `string`\>
+- `BaseQuestion`\<`number` \| `string`\>
 
 - `QuestionHints`
 
@@ -114,7 +114,7 @@ ___
 
 ### type
 
-• **type**: ``"select"`` \| [`PromptTypeMethod`](PromptTypeMethod.md)<``"select"``\>
+• **type**: ``"select"`` \| [`PromptTypeMethod`](PromptTypeMethod.md)\<``"select"``\>
 
 ___
 

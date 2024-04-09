@@ -1,4 +1,4 @@
-# Interface: ParsedImport<I\>
+# Interface: ParsedImport\<I\>
 
 ## Type parameters
 

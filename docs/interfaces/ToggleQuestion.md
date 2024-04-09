@@ -2,7 +2,7 @@
 
 ## Hierarchy
 
-- `BaseQuestion`<`boolean`\>
+- `BaseQuestion`\<`boolean`\>
 
   ↳ **`ToggleQuestion`**
 
@@ -101,7 +101,7 @@ ___
 
 ### type
 
-• **type**: ``"toggle"`` \| [`PromptTypeMethod`](PromptTypeMethod.md)<``"toggle"``\>
+• **type**: ``"toggle"`` \| [`PromptTypeMethod`](PromptTypeMethod.md)\<``"toggle"``\>
 
 ## Methods
 

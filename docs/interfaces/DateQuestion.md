@@ -2,7 +2,7 @@
 
 ## Hierarchy
 
-- `BaseQuestion`<`Date`\>
+- `BaseQuestion`\<`Date`\>
 
 - `QuestionMinMax`
 
@@ -125,7 +125,7 @@ ___
 
 ### type
 
-• **type**: ``"date"`` \| [`PromptTypeMethod`](PromptTypeMethod.md)<``"date"``\>
+• **type**: ``"date"`` \| [`PromptTypeMethod`](PromptTypeMethod.md)\<``"date"``\>
 
 ## Methods
 

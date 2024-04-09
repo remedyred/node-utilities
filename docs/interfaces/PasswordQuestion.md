@@ -87,7 +87,7 @@ ___
 
 ### type
 
-• **type**: ``"password"`` \| [`PromptTypeMethod`](PromptTypeMethod.md)<``"password"``\>
+• **type**: ``"password"`` \| [`PromptTypeMethod`](PromptTypeMethod.md)\<``"password"``\>
 
 ## Methods
 

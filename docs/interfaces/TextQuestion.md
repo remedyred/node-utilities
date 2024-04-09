@@ -94,7 +94,7 @@ ___
 
 ### type
 
-• **type**: ``"text"`` \| [`PromptTypeMethod`](PromptTypeMethod.md)<``"text"``\>
+• **type**: ``"text"`` \| [`PromptTypeMethod`](PromptTypeMethod.md)\<``"text"``\>
 
 ## Methods
 

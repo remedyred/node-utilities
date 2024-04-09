@@ -2,7 +2,7 @@
 
 ## Hierarchy
 
-- `BaseQuestion`<`number` \| `string`\>
+- `BaseQuestion`\<`number` \| `string`\>
 
 - `QuestionChoices`
 
@@ -122,7 +122,7 @@ ___
 
 ### type
 
-• **type**: ``"autocomplete"`` \| [`PromptTypeMethod`](PromptTypeMethod.md)<``"autocomplete"``\>
+• **type**: ``"autocomplete"`` \| [`PromptTypeMethod`](PromptTypeMethod.md)\<``"autocomplete"``\>
 
 ## Methods
 
@@ -169,7 +169,7 @@ ___
 
 ### suggest
 
-▸ **suggest**(`input`, `choices`): `Promise`<`string`[]\>
+▸ **suggest**(`input`, `choices`): `Promise`\<`string`[]\>
 
 #### Parameters
 
@@ -180,4 +180,4 @@ ___
 
 #### Returns
 
-`Promise`<`string`[]\>
+`Promise`\<`string`[]\>
