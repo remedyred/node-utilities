@@ -1,14 +1,6 @@
 import {arrayUnique, isCallable} from '@snickbit/utilities'
 
 /** @category Imports */
-export const isImport = (data: any) => typeof data === 'function' || data?.constructor.name === 'AsyncFunction' || Array.isArray(data)
-
-/** @category Imports */
-export const isImportDefinition = (data: any) => data && data['run'] || data['handler'] || data['method']
-
-export type ImportMethod<Args = any, Results = any> = (...args: Args[]) => Promise<Results> | Results
-
-/** @category Imports */
 export interface ImportDefinition<I extends ImportMethod = ImportMethod, Args = any, Results = any> extends ImportMethod<Args, Results> {
 	default: Array<ImportDefinition> | I | ImportDefinition<I> | ImportMethod<Args, Results>
 	name?: string
@@ -19,11 +11,15 @@ export interface ImportDefinition<I extends ImportMethod = ImportMethod, Args = 
 }
 
 /** @category Imports */
+export type ImportMethod<Args = any, Results = any> = (...args: Args[]) => Promise<Results> | Results
+
+/** @category Imports */
 export type ImportRecords<I extends ImportMethod = ImportMethod> = Record<string, I | ImportDefinition<I>>
 
 /** @category Imports */
 export type RecordOfImportRecords<I extends ImportMethod = ImportMethod> = Record<string, ImportRecords<I>>
 
+/** @category Imports */
 export type RawImports<I extends ImportMethod = ImportMethod> = ImportRecords<I> | RecordOfImportRecords<I> | any
 
 /** @category Imports */
@@ -34,8 +30,10 @@ export interface ParsedImport<I extends ImportMethod = ImportMethod> {
 	handler: I
 }
 
+/** @category Imports */
 export type ParsedImportRecords<I extends ImportMethod = ImportMethod> = Record<string, ParsedImport<I>>
 
+/** @category Imports */
 export interface UnparsedImport<I extends ImportMethod = ImportMethod> {
 	name?: string
 	aliases?: string[]
@@ -49,8 +47,30 @@ export interface UnparsedImport<I extends ImportMethod = ImportMethod> {
 }
 
 /**
- * Parse imports from `import * as name from 'path'` statements into a more manageable format.
+ * Checks whether a given data is of "import" type.
  * @category Imports
+ *
+ * @param {any} data - The data to be checked.
+ * @returns {boolean} - Returns true if provided data is an import type.
+ */
+export const isImport = (data: any): boolean => typeof data === 'function' || data?.constructor.name === 'AsyncFunction' || Array.isArray(data)
+
+/**
+ * Checks whether a given data is of "import definition" type.
+ * @category Imports
+ *
+ * @param {any} data - The data to be checked.
+ * @returns {boolean} - Returns true if provided data is an import definition type.
+ */
+export const isImportDefinition = (data: any): boolean => data && data['run'] || data['handler'] || data['method']
+
+/**
+ * Parse provided imports and prepares a record of it.
+ * @category Imports
+ *
+ * @param {RawImports} imports - The raw imports to be parsed.
+ * @param {string} [parent] - The parent name.
+ * @returns {ParsedImportRecords<I>}
  */
 export function parseImports<I extends ImportMethod = ImportMethod>(imports: RawImports, parent?: string): ParsedImportRecords<I> {
 	const importRecords = {}

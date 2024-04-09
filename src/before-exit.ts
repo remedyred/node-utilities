@@ -1,35 +1,28 @@
-import EventEmitter from 'events'
-
-let _emitter
+let _target: EventTarget
 
 /** @internal */
-function useEmitter() {
-	// eslint-disable-next-line unicorn/prefer-event-target
-	_emitter ||= new EventEmitter()
-	return _emitter
+function useTarget() {
+	_target ||= new EventTarget()
+	return _target
 }
 
 /**
- * Add a function to be called before the process exits.
+ * Registers a callback function to be executed before the program exits.
+ * @param {Function} callback - The callback function to be executed.
+ * @return {void}
  * @category Before Exit
  */
-export function beforeExit(callback: () => void) {
-	const emitter = useEmitter()
+export function beforeExit(callback: () => void): void {
+	const target = useTarget()
 
-	// so the program will not close instantly
 	process.stdin.resume()
 
-	// attach user callback to the process event emitter
-	// if no callback, it will still exit gracefully on Ctrl-C
 	callback ||= (() => void 0)
-	emitter.on('cleanup', callback)
+	target.addEventListener('cleanup', callback)
 
-	// do app specific cleaning before exiting
-	process.on('exit', () => emitter.emit('cleanup'))
+	process.on('exit', () => target.dispatchEvent(new Event('cleanup')))
 
-	// catch ctrl+c event and exit normally
 	process.on('SIGINT', () => process.exit(2))
 
-	// catch uncaught exceptions, trace, then exit normally
 	process.on('uncaughtException', () => process.exit(99))
 }
