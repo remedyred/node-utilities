@@ -10,13 +10,6 @@ export function saveFileJSON(filepath: PathOrFileDescriptor, content: any, optio
 	return saveFile(filepath, `${JSON.stringify(content, null, '\t')}\n`, options)
 }
 
-/**
- * Save file to disk as JSON
- * @category Files
- * @deprecated use saveFileJSON instead
- */
-export const saveFileJson = saveFileJSON
-
 /** @category Files */
 export const fileExists = (filepath: PathLike) => fs.existsSync(filepath)
 
@@ -70,13 +63,6 @@ export function getFileJSON(filepath: PathLike, fallback?: any) {
 	const content = getFile(filepath)
 	return content ? JSONParse(content, fallback) : fallback
 }
-
-/**
- * Get JSON from file
- * @category Files
- * @deprecated use getFileJSON instead
- */
-export const getFileJson = getFileJSON
 
 /** @category Files */
 export interface FindUpOptions {

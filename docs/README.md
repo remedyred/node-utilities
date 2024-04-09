@@ -2,16 +2,6 @@
 
 ## Table of contents
 
-### Progress Classes
-
-- [MultiProgress](classes/MultiProgress.md)
-- [MultiProgressChild](classes/MultiProgressChild.md)
-- [Progress](classes/Progress.md)
-
-### Spinner Classes
-
-- [Spinner](classes/Spinner.md)
-
 ### Files Interfaces
 
 - [FindUpOptions](interfaces/FindUpOptions.md)
@@ -24,13 +14,7 @@
 ### Modules Interfaces
 
 - [AutoCompleteQuestion](interfaces/AutoCompleteQuestion.md)
-- [CLIProgressOptions](interfaces/CLIProgressOptions.md)
-- [MultiProgressChildConfig](interfaces/MultiProgressChildConfig.md)
 - [UnparsedImport](interfaces/UnparsedImport.md)
-
-### Progress Interfaces
-
-- [ProgressConfig](interfaces/ProgressConfig.md)
 
 ### Prompts Interfaces
 
@@ -50,10 +34,6 @@
 - [TextQuestion](interfaces/TextQuestion.md)
 - [ToggleQuestion](interfaces/ToggleQuestion.md)
 
-### Spinner Interfaces
-
-- [SpinnerConfig](interfaces/SpinnerConfig.md)
-
 ### Imports Type Aliases
 
 - [ImportRecords](README.md#importrecords)
@@ -62,15 +42,8 @@
 ### Modules Type Aliases
 
 - [ImportMethod](README.md#importmethod)
-- [MultiProgressChildOptions](README.md#multiprogresschildoptions)
 - [ParsedImportRecords](README.md#parsedimportrecords)
-- [ProgressOptions](README.md#progressoptions)
-- [ProgressPayload](README.md#progresspayload)
 - [RawImports](README.md#rawimports)
-
-### Progress Type Aliases
-
-- [MultiProgressBars](README.md#multiprogressbars)
 
 ### Prompts Type Aliases
 
@@ -82,10 +55,6 @@
 - [PromptsMethod](README.md#promptsmethod)
 - [Question](README.md#question)
 - [QuestionRecords](README.md#questionrecords)
-
-### Spinner Type Aliases
-
-- [SpinnerOptions](README.md#spinneroptions)
 
 ### Environment Variables
 
@@ -120,12 +89,10 @@
 - [findUp](README.md#findup)
 - [getFile](README.md#getfile)
 - [getFileJSON](README.md#getfilejson)
-- [getFileJson](README.md#getfilejson-1)
 - [isDirectory](README.md#isdirectory)
 - [mkdir](README.md#mkdir)
 - [saveFile](README.md#savefile)
 - [saveFileJSON](README.md#savefilejson)
-- [saveFileJson](README.md#savefilejson-1)
 - [unlink](README.md#unlink)
 
 ### Imports Functions
@@ -134,20 +101,11 @@
 - [isImportDefinition](README.md#isimportdefinition)
 - [parseImports](README.md#parseimports)
 
-### Progress Functions
-
-- [multiprogress](README.md#multiprogress)
-- [progress](README.md#progress)
-
 ### Prompts Functions
 
 - [ask](README.md#ask)
 - [confirm](README.md#confirm)
 - [prompt](README.md#prompt)
-
-### Spinner Functions
-
-- [spinner](README.md#spinner)
 
 ## Imports Type Aliases
 
@@ -204,12 +162,6 @@ ___
 
 ___
 
-### MultiProgressChildOptions
-
-Ƭ **MultiProgressChildOptions**: `Partial`<[`MultiProgressChildConfig`](interfaces/MultiProgressChildConfig.md)\>
-
-___
-
 ### ParsedImportRecords
 
 Ƭ **ParsedImportRecords**<`I`\>: `Record`<`string`, [`ParsedImport`](interfaces/ParsedImport.md)<`I`\>\>
@@ -222,18 +174,6 @@ ___
 
 ___
 
-### ProgressOptions
-
-Ƭ **ProgressOptions**: `Partial`<[`ProgressConfig`](interfaces/ProgressConfig.md)\>
-
-___
-
-### ProgressPayload
-
-Ƭ **ProgressPayload**: `Record`<`string`, `any`\>
-
-___
-
 ### RawImports
 
 Ƭ **RawImports**<`I`\>: [`ImportRecords`](README.md#importrecords)<`I`\> \| [`RecordOfImportRecords`](README.md#recordofimportrecords)<`I`\> \| `any`
@@ -243,14 +183,6 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `I` | extends [`ImportMethod`](README.md#importmethod) = [`ImportMethod`](README.md#importmethod) |
-
-___
-
-## Progress Type Aliases
-
-### MultiProgressBars
-
-Ƭ **MultiProgressBars**: `Record`<`string`, [`MultiProgressChild`](classes/MultiProgressChild.md)\>
 
 ___
 
@@ -317,14 +249,6 @@ ___
 ### QuestionRecords
 
 Ƭ **QuestionRecords**: `Record`<`string`, [`Question`](README.md#question)\>
-
-___
-
-## Spinner Type Aliases
-
-### SpinnerOptions
-
-Ƭ **SpinnerOptions**: `Partial`<[`SpinnerConfig`](interfaces/SpinnerConfig.md)\>
 
 ## Environment Variables
 
@@ -556,29 +480,6 @@ Get JSON from file
 
 ___
 
-### getFileJson
-
-▸ **getFileJson**(`filepath`, `fallback?`): `any`
-
-Get JSON from file
-
-**`Deprecated`**
-
-use getFileJSON instead
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `filepath` | `PathLike` |
-| `fallback?` | `any` |
-
-#### Returns
-
-`any`
-
-___
-
 ### isDirectory
 
 ▸ **isDirectory**(`filepath`): `boolean`
@@ -639,30 +540,6 @@ ___
 ▸ **saveFileJSON**(`filepath`, `content`, `options?`): `void`
 
 Save file to disk as JSON
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `filepath` | `PathOrFileDescriptor` | `undefined` |
-| `content` | `any` | `undefined` |
-| `options` | `WriteFileOptions` | `'utf8'` |
-
-#### Returns
-
-`void`
-
-___
-
-### saveFileJson
-
-▸ **saveFileJson**(`filepath`, `content`, `options?`): `void`
-
-Save file to disk as JSON
-
-**`Deprecated`**
-
-use saveFileJSON instead
 
 #### Parameters
 
@@ -753,60 +630,6 @@ Parse imports from `import * as name from 'path'` statements into a more managea
 
 ___
 
-## Progress Functions
-
-### multiprogress
-
-▸ **multiprogress**(`options?`): [`MultiProgress`](classes/MultiProgress.md)
-
-Multi-Progress bar. Uses cli-progress to create multiple progress bars.
-
-**`See`**
-
-https://github.com/npkgz/cli-progress
-
-**`Deprecated`**
-
-use @snickbit/progress instead
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Partial`<[`ProgressConfig`](interfaces/ProgressConfig.md)\> |
-
-#### Returns
-
-[`MultiProgress`](classes/MultiProgress.md)
-
-___
-
-### progress
-
-▸ **progress**(`options?`): [`Progress`](classes/Progress.md)
-
-Progress bar. Uses cli-progress to create multiple progress bars.
-
-**`See`**
-
-https://github.com/npkgz/cli-progress
-
-**`Deprecated`**
-
-use @snickbit/progress instead
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `Partial`<[`ProgressConfig`](interfaces/ProgressConfig.md)\> |
-
-#### Returns
-
-[`Progress`](classes/Progress.md)
-
-___
-
 ## Prompts Functions
 
 ### ask
@@ -894,31 +717,3 @@ ___
 #### Returns
 
 `Promise`<[`Answers`](README.md#answers)\>
-
-___
-
-## Spinner Functions
-
-### spinner
-
-▸ **spinner**(`options?`): [`Spinner`](classes/Spinner.md)
-
-Spinner. Uses nanospinner to show spinners in the terminal.
-
-**`See`**
-
-https://github.com/usmanyunusov/nanospinner
-
-**`Deprecated`**
-
-use @snickbit/spinner instead
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `string` \| `Partial`<[`SpinnerConfig`](interfaces/SpinnerConfig.md)\> |
-
-#### Returns
-
-[`Spinner`](classes/Spinner.md)
