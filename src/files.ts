@@ -80,6 +80,16 @@ export function getFileJSON(filepath: PathLike, fallback?: any): any | object {
 }
 
 /**
+ * Gets the contents of the package.json file located in the specified directory.
+ * @category Files
+ * @param {string} cwd - The current working directory.
+ * @returns {any} - The contents of the package.json file as a JSON object.
+ */
+export function getPackageJSON(cwd: string): any {
+	return getFileJSON(findUp('package.json', {cwd}), {})
+}
+
+/**
  * Check if a path is directory
  * @category Files
  * @param {PathLike} filepath - The path to check
