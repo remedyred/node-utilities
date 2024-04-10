@@ -205,7 +205,7 @@ const defaultPromptOptions = {
 /**
  * Prompts the user with questions and returns the answers as a promise.
  * @category Prompts
- * @param {Question[] | QuestionRecords} questions - The questions to prompt the user with. Can be an array of Question objects or a QuestionRecords object.
+ * @param {Question[] | QuestionRecords} questions - The questions to prompt the user with.
  * @return {Promise<Answers>} - A promise that resolves with the answers provided by the user.
  */
 export async function prompt(questions: Question[] | QuestionRecords): Promise<Answers> {
