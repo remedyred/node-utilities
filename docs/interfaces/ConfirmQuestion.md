@@ -2,7 +2,7 @@
 
 ## Hierarchy
 
-- `BaseQuestion`<`boolean`\>
+- `BaseQuestion`\<`boolean`\>
 
 - `QuestionChoices`
 
@@ -100,7 +100,7 @@ ___
 
 ### type
 
-• **type**: ``"confirm"`` \| [`PromptTypeMethod`](PromptTypeMethod.md)<``"confirm"``\>
+• **type**: ``"confirm"`` \| [`PromptTypeMethod`](PromptTypeMethod.md)\<``"confirm"``\>
 
 ## Methods
 

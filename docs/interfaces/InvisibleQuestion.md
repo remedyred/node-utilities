@@ -87,7 +87,7 @@ ___
 
 ### type
 
-• **type**: ``"invisible"`` \| [`PromptTypeMethod`](PromptTypeMethod.md)<``"invisible"``\>
+• **type**: ``"invisible"`` \| [`PromptTypeMethod`](PromptTypeMethod.md)\<``"invisible"``\>
 
 ## Methods
 

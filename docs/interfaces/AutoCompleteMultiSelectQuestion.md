@@ -2,7 +2,7 @@
 
 ## Hierarchy
 
-- `Omit`<[`MultiSelectQuestion`](MultiSelectQuestion.md), ``"type"``\>
+- `Omit`\<[`MultiSelectQuestion`](MultiSelectQuestion.md), ``"type"``\>
 
   ↳ **`AutoCompleteMultiSelectQuestion`**
 
@@ -143,7 +143,7 @@ ___
 
 ### type
 
-• **type**: ``"autocompleteMultiselect"`` \| [`PromptTypeMethod`](PromptTypeMethod.md)<``"autocompleteMultiselect"``\>
+• **type**: ``"autocompleteMultiselect"`` \| [`PromptTypeMethod`](PromptTypeMethod.md)\<``"autocompleteMultiselect"``\>
 
 ___
 

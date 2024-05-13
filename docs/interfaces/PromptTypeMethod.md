@@ -1,4 +1,4 @@
-# Interface: PromptTypeMethod<P\>
+# Interface: PromptTypeMethod\<P\>
 
 ## Type parameters
 

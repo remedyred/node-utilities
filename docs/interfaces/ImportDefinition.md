@@ -1,4 +1,4 @@
-# Interface: ImportDefinition<I, Args, Results\>
+# Interface: ImportDefinition\<I, Args, Results\>
 
 ## Type parameters
 
@@ -10,7 +10,7 @@
 
 ## Hierarchy
 
-- [`ImportMethod`](../README.md#importmethod)<`Args`, `Results`\>
+- [`ImportMethod`](../README.md#importmethod)\<`Args`, `Results`\>
 
   ↳ **`ImportDefinition`**
 
@@ -18,7 +18,7 @@
 
 ### ImportDefinition
 
-▸ **ImportDefinition**(`...args`): `Results` \| `Promise`<`Results`\>
+▸ **ImportDefinition**(`...args`): `Results` \| `Promise`\<`Results`\>
 
 #### Parameters
 
@@ -28,7 +28,7 @@
 
 #### Returns
 
-`Results` \| `Promise`<`Results`\>
+`Results` \| `Promise`\<`Results`\>
 
 ## Indexable
 
@@ -53,7 +53,7 @@ ___
 
 ### default
 
-• **default**: `I` \| [`ImportMethod`](../README.md#importmethod)<`Args`, `Results`\> \| [`ImportDefinition`](ImportDefinition.md)<[`ImportMethod`](../README.md#importmethod)<`any`, `any`\>, `any`, `any`\>[] \| [`ImportDefinition`](ImportDefinition.md)<`I`, `any`, `any`\>
+• **default**: `I` \| [`ImportMethod`](../README.md#importmethod)\<`Args`, `Results`\> \| [`ImportDefinition`](ImportDefinition.md)\<[`ImportMethod`](../README.md#importmethod)\<`any`, `any`\>, `any`, `any`\>[] \| [`ImportDefinition`](ImportDefinition.md)\<`I`, `any`, `any`\>
 
 ___
 

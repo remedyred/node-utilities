@@ -2,7 +2,7 @@
 
 ## Hierarchy
 
-- `BaseQuestion`<`number`\>
+- `BaseQuestion`\<`number`\>
 
   ↳ **`NumberQuestion`**
 
@@ -108,7 +108,7 @@ ___
 
 ### type
 
-• **type**: ``"number"`` \| [`PromptTypeMethod`](PromptTypeMethod.md)<``"number"``\>
+• **type**: ``"number"`` \| [`PromptTypeMethod`](PromptTypeMethod.md)\<``"number"``\>
 
 ## Methods
 

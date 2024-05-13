@@ -2,46 +2,20 @@
 
 ## Table of contents
 
-### Progress Classes
-
-- [MultiProgress](classes/MultiProgress.md)
-- [MultiProgressChild](classes/MultiProgressChild.md)
-- [Progress](classes/Progress.md)
-
-### Spinner Classes
-
-- [Spinner](classes/Spinner.md)
-
-### Files Interfaces
-
-- [FindUpOptions](interfaces/FindUpOptions.md)
-
-### Imports Interfaces
-
-- [ImportDefinition](interfaces/ImportDefinition.md)
-- [ParsedImport](interfaces/ParsedImport.md)
-
-### Modules Interfaces
-
-- [AutoCompleteQuestion](interfaces/AutoCompleteQuestion.md)
-- [CLIProgressOptions](interfaces/CLIProgressOptions.md)
-- [MultiProgressChildConfig](interfaces/MultiProgressChildConfig.md)
-- [UnparsedImport](interfaces/UnparsedImport.md)
-
-### Progress Interfaces
-
-- [ProgressConfig](interfaces/ProgressConfig.md)
-
-### Prompts Interfaces
+### Interfaces
 
 - [AutoCompleteMultiSelectQuestion](interfaces/AutoCompleteMultiSelectQuestion.md)
+- [AutoCompleteQuestion](interfaces/AutoCompleteQuestion.md)
 - [ChoiceDefinition](interfaces/ChoiceDefinition.md)
 - [ConfirmQuestion](interfaces/ConfirmQuestion.md)
 - [DateQuestion](interfaces/DateQuestion.md)
+- [FindUpOptions](interfaces/FindUpOptions.md)
+- [ImportDefinition](interfaces/ImportDefinition.md)
 - [InvisibleQuestion](interfaces/InvisibleQuestion.md)
 - [ListQuestion](interfaces/ListQuestion.md)
 - [MultiSelectQuestion](interfaces/MultiSelectQuestion.md)
 - [NumberQuestion](interfaces/NumberQuestion.md)
+- [ParsedImport](interfaces/ParsedImport.md)
 - [PasswordQuestion](interfaces/PasswordQuestion.md)
 - [PromptState](interfaces/PromptState.md)
 - [PromptTypeMethod](interfaces/PromptTypeMethod.md)
@@ -49,45 +23,25 @@
 - [SelectQuestion](interfaces/SelectQuestion.md)
 - [TextQuestion](interfaces/TextQuestion.md)
 - [ToggleQuestion](interfaces/ToggleQuestion.md)
+- [UnparsedImport](interfaces/UnparsedImport.md)
 
-### Spinner Interfaces
-
-- [SpinnerConfig](interfaces/SpinnerConfig.md)
-
-### Imports Type Aliases
-
-- [ImportRecords](README.md#importrecords)
-- [RecordOfImportRecords](README.md#recordofimportrecords)
-
-### Modules Type Aliases
-
-- [ImportMethod](README.md#importmethod)
-- [MultiProgressChildOptions](README.md#multiprogresschildoptions)
-- [ParsedImportRecords](README.md#parsedimportrecords)
-- [ProgressOptions](README.md#progressoptions)
-- [ProgressPayload](README.md#progresspayload)
-- [RawImports](README.md#rawimports)
-
-### Progress Type Aliases
-
-- [MultiProgressBars](README.md#multiprogressbars)
-
-### Prompts Type Aliases
+### Type Aliases
 
 - [AnswerTypes](README.md#answertypes)
 - [Answers](README.md#answers)
 - [ChoiceOption](README.md#choiceoption)
 - [ChoiceRecords](README.md#choicerecords)
+- [ImportMethod](README.md#importmethod)
+- [ImportRecords](README.md#importrecords)
+- [ParsedImportRecords](README.md#parsedimportrecords)
 - [PromptType](README.md#prompttype)
 - [PromptsMethod](README.md#promptsmethod)
 - [Question](README.md#question)
 - [QuestionRecords](README.md#questionrecords)
+- [RawImports](README.md#rawimports)
+- [RecordOfImportRecords](README.md#recordofimportrecords)
 
-### Spinner Type Aliases
-
-- [SpinnerOptions](README.md#spinneroptions)
-
-### Environment Variables
+### Variables
 
 - [app\_data\_dir](README.md#app_data_dir)
 - [bashrc\_path](README.md#bashrc_path)
@@ -99,234 +53,50 @@
 - [user\_data\_dir](README.md#user_data_dir)
 - [verbose](README.md#verbose)
 
-### Before Exit Functions
+### Functions
 
+- [ask](README.md#ask)
 - [beforeExit](README.md#beforeexit)
-
-### Buffer Functions
-
 - [bufferStream](README.md#bufferstream)
-- [makeBuffer](README.md#makebuffer)
-
-### Environment Functions
-
-- [interpolateEnv](README.md#interpolateenv)
-- [isBundledElectronApp](README.md#isbundledelectronapp)
-- [isElectronApp](README.md#iselectronapp)
-
-### Files Functions
-
+- [confirm](README.md#confirm)
 - [fileExists](README.md#fileexists)
 - [findUp](README.md#findup)
 - [getFile](README.md#getfile)
 - [getFileJSON](README.md#getfilejson)
-- [getFileJson](README.md#getfilejson-1)
+- [getPackageJSON](README.md#getpackagejson)
+- [interpolateEnv](README.md#interpolateenv)
+- [isBundledElectronApp](README.md#isbundledelectronapp)
 - [isDirectory](README.md#isdirectory)
-- [mkdir](README.md#mkdir)
-- [saveFile](README.md#savefile)
-- [saveFileJSON](README.md#savefilejson)
-- [saveFileJson](README.md#savefilejson-1)
-- [unlink](README.md#unlink)
-
-### Imports Functions
-
+- [isElectronApp](README.md#iselectronapp)
 - [isImport](README.md#isimport)
 - [isImportDefinition](README.md#isimportdefinition)
+- [makeBuffer](README.md#makebuffer)
+- [mkdir](README.md#mkdir)
 - [parseImports](README.md#parseimports)
-
-### Progress Functions
-
-- [multiprogress](README.md#multiprogress)
-- [progress](README.md#progress)
-
-### Prompts Functions
-
-- [ask](README.md#ask)
-- [confirm](README.md#confirm)
 - [prompt](README.md#prompt)
+- [saveFile](README.md#savefile)
+- [saveFileJSON](README.md#savefilejson)
+- [unlink](README.md#unlink)
 
-### Spinner Functions
+## Before Exit
 
-- [spinner](README.md#spinner)
+### beforeExit
 
-## Imports Type Aliases
+▸ **beforeExit**(`callback`): `void`
 
-### ImportRecords
+Registers a callback function to be executed before the program exits.
 
-Ƭ **ImportRecords**<`I`\>: `Record`<`string`, `I` \| [`ImportDefinition`](interfaces/ImportDefinition.md)<`I`\>\>
+#### Parameters
 
-#### Type parameters
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `callback` | () => `void` | The callback function to be executed. |
 
-| Name | Type |
-| :------ | :------ |
-| `I` | extends [`ImportMethod`](README.md#importmethod) = [`ImportMethod`](README.md#importmethod) |
+#### Returns
 
-___
+`void`
 
-### RecordOfImportRecords
-
-Ƭ **RecordOfImportRecords**<`I`\>: `Record`<`string`, [`ImportRecords`](README.md#importrecords)<`I`\>\>
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `I` | extends [`ImportMethod`](README.md#importmethod) = [`ImportMethod`](README.md#importmethod) |
-
-___
-
-## Modules Type Aliases
-
-### ImportMethod
-
-Ƭ **ImportMethod**<`Args`, `Results`\>: (...`args`: `Args`[]) => `Promise`<`Results`\> \| `Results`
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `Args` | `any` |
-| `Results` | `any` |
-
-#### Type declaration
-
-▸ (`...args`): `Promise`<`Results`\> \| `Results`
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `...args` | `Args`[] |
-
-##### Returns
-
-`Promise`<`Results`\> \| `Results`
-
-___
-
-### MultiProgressChildOptions
-
-Ƭ **MultiProgressChildOptions**: `Partial`<[`MultiProgressChildConfig`](interfaces/MultiProgressChildConfig.md)\>
-
-___
-
-### ParsedImportRecords
-
-Ƭ **ParsedImportRecords**<`I`\>: `Record`<`string`, [`ParsedImport`](interfaces/ParsedImport.md)<`I`\>\>
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `I` | extends [`ImportMethod`](README.md#importmethod) = [`ImportMethod`](README.md#importmethod) |
-
-___
-
-### ProgressOptions
-
-Ƭ **ProgressOptions**: `Partial`<[`ProgressConfig`](interfaces/ProgressConfig.md)\>
-
-___
-
-### ProgressPayload
-
-Ƭ **ProgressPayload**: `Record`<`string`, `any`\>
-
-___
-
-### RawImports
-
-Ƭ **RawImports**<`I`\>: [`ImportRecords`](README.md#importrecords)<`I`\> \| [`RecordOfImportRecords`](README.md#recordofimportrecords)<`I`\> \| `any`
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `I` | extends [`ImportMethod`](README.md#importmethod) = [`ImportMethod`](README.md#importmethod) |
-
-___
-
-## Progress Type Aliases
-
-### MultiProgressBars
-
-Ƭ **MultiProgressBars**: `Record`<`string`, [`MultiProgressChild`](classes/MultiProgressChild.md)\>
-
-___
-
-## Prompts Type Aliases
-
-### AnswerTypes
-
-Ƭ **AnswerTypes**: `Date` \| `boolean` \| `number` \| `string`
-
-___
-
-### Answers
-
-Ƭ **Answers**: `Record`<`string`, `string`\>
-
-___
-
-### ChoiceOption
-
-Ƭ **ChoiceOption**: [`ChoiceDefinition`](interfaces/ChoiceDefinition.md) \| `string`
-
-___
-
-### ChoiceRecords
-
-Ƭ **ChoiceRecords**: `Record`<`string`, [`ChoiceOption`](README.md#choiceoption)\>
-
-___
-
-### PromptType
-
-Ƭ **PromptType**: ``"autocomplete"`` \| ``"autocompleteMultiselect"`` \| ``"confirm"`` \| ``"date"`` \| ``"invisible"`` \| ``"list"`` \| ``"multiselect"`` \| ``"number"`` \| ``"password"`` \| ``"select"`` \| ``"text"`` \| ``"toggle"``
-
-___
-
-### PromptsMethod
-
-Ƭ **PromptsMethod**: (`prev`: `string`, `answers`: [`Answers`](README.md#answers), `previousQuestion`: [`Question`](README.md#question)) => `Promise`<`string`\> \| `string`
-
-#### Type declaration
-
-▸ (`prev`, `answers`, `previousQuestion`): `Promise`<`string`\> \| `string`
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `prev` | `string` |
-| `answers` | [`Answers`](README.md#answers) |
-| `previousQuestion` | [`Question`](README.md#question) |
-
-##### Returns
-
-`Promise`<`string`\> \| `string`
-
-___
-
-### Question
-
-Ƭ **Question**: [`AutoCompleteMultiSelectQuestion`](interfaces/AutoCompleteMultiSelectQuestion.md) \| [`AutoCompleteQuestion`](interfaces/AutoCompleteQuestion.md) \| [`ConfirmQuestion`](interfaces/ConfirmQuestion.md) \| [`DateQuestion`](interfaces/DateQuestion.md) \| [`InvisibleQuestion`](interfaces/InvisibleQuestion.md) \| [`ListQuestion`](interfaces/ListQuestion.md) \| [`MultiSelectQuestion`](interfaces/MultiSelectQuestion.md) \| [`NumberQuestion`](interfaces/NumberQuestion.md) \| [`PasswordQuestion`](interfaces/PasswordQuestion.md) \| [`SelectQuestion`](interfaces/SelectQuestion.md) \| [`TextQuestion`](interfaces/TextQuestion.md) \| [`ToggleQuestion`](interfaces/ToggleQuestion.md)
-
-___
-
-### QuestionRecords
-
-Ƭ **QuestionRecords**: `Record`<`string`, [`Question`](README.md#question)\>
-
-___
-
-## Spinner Type Aliases
-
-### SpinnerOptions
-
-Ƭ **SpinnerOptions**: `Partial`<[`SpinnerConfig`](interfaces/SpinnerConfig.md)\>
-
-## Environment Variables
+## Environment
 
 ### app\_data\_dir
 
@@ -380,82 +150,26 @@ ___
 
 • `Const` **verbose**: `number`
 
-## Before Exit Functions
-
-### beforeExit
-
-▸ **beforeExit**(`callback`): `void`
-
-Add a function to be called before the process exits.
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `callback` | () => `void` |
-
-#### Returns
-
-`void`
-
 ___
-
-## Buffer Functions
-
-### bufferStream
-
-▸ **bufferStream**(`readable`): `Promise`<`Buffer`\>
-
-Make a buffer from a file stream
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `readable` | `Readable` |
-
-#### Returns
-
-`Promise`<`Buffer`\>
-
-___
-
-### makeBuffer
-
-▸ **makeBuffer**(`content`): `Buffer`
-
-Make a buffer from a string.
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `content` | `string` |
-
-#### Returns
-
-`Buffer`
-
-___
-
-## Environment Functions
 
 ### interpolateEnv
 
 ▸ **interpolateEnv**(`str`, `defaultValues?`): `string`
 
-interpolate string with env variables, optionally pass an object of default values
+Interpolate environment variables in the provided string.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `str` | `string` |
-| `defaultValues` | `Record`<`string`, `string`\> |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `str` | `string` | The string in which to interpolate environment variables. |
+| `defaultValues` | `Record`\<`string`, `string`\> | An object representing the default values for variables. |
 
 #### Returns
 
 `string`
+
+The interpolated string.
 
 ___
 
@@ -463,11 +177,13 @@ ___
 
 ▸ **isBundledElectronApp**(): `boolean`
 
-Check if the current process is a bundled Electron app.
+Determine if the current process is a bundled Electron app.
 
 #### Returns
 
 `boolean`
+
+True if the current process is a bundled Electron app, false otherwise.
 
 ___
 
@@ -475,29 +191,33 @@ ___
 
 ▸ **isElectronApp**(): `boolean`
 
-Check if the current process is a Electron app
+Determine if the current process is an Electron app.
 
 #### Returns
 
 `boolean`
 
-___
+True if the current process is an Electron app, false otherwise.
 
-## Files Functions
+## Files
 
 ### fileExists
 
 ▸ **fileExists**(`filepath`): `boolean`
 
+Check if a file or directory exists
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `filepath` | `PathLike` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `filepath` | `PathLike` | The filepath to check |
 
 #### Returns
 
 `boolean`
+
+- Return true if the file or directory exists, false otherwise
 
 ___
 
@@ -505,77 +225,82 @@ ___
 
 ▸ **findUp**(`name`, `options?`): `any`
 
+Search upward from a directory for a file
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `name` | `PathLike` |
-| `options?` | `string` \| `boolean` \| `Partial`<[`FindUpOptions`](interfaces/FindUpOptions.md)\> |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `name` | `PathLike` | The file to find |
+| `options?` | `string` \| `boolean` \| `Partial`\<[`FindUpOptions`](interfaces/FindUpOptions.md)\> | options to be used while finding file |
 
 #### Returns
 
 `any`
+
+- Return the path of the file, if found. Null if not found
 
 ___
 
 ### getFile
 
-▸ **getFile**(`filepath`, `fallback?`): `any`
+▸ **getFile**(`filepath`, `fallback?`): `any` \| `string`
 
-Get file content
+Read a file and return its data as string
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `filepath` | `PathLike` |
-| `fallback?` | `any` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `filepath` | `PathLike` | The path of the file |
+| `fallback?` | `any` | The fallback data if the file doesn't exist |
 
 #### Returns
 
-`any`
+`any` \| `string`
+
+- The data read from the file, or the fallback data if the file doesn't exist
 
 ___
 
 ### getFileJSON
 
-▸ **getFileJSON**(`filepath`, `fallback?`): `any`
+▸ **getFileJSON**(`filepath`, `fallback?`): `any` \| `object`
 
-Get JSON from file
+Reads a JSON file and return its data as Javascript object
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `filepath` | `PathLike` |
-| `fallback?` | `any` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `filepath` | `PathLike` | The path of the file |
+| `fallback?` | `any` | The fallback data if the file doesn't exist |
 
 #### Returns
 
-`any`
+`any` \| `object`
+
+- The JSON parsed data, or the fallback data if the file doesn't exist
 
 ___
 
-### getFileJson
+### getPackageJSON
 
-▸ **getFileJson**(`filepath`, `fallback?`): `any`
+▸ **getPackageJSON**(`cwd`): `any`
 
-Get JSON from file
-
-**`Deprecated`**
-
-use getFileJSON instead
+Gets the contents of the package.json file located in the specified directory.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `filepath` | `PathLike` |
-| `fallback?` | `any` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `cwd` | `string` | The current working directory. |
 
 #### Returns
 
 `any`
+
+- The contents of the package.json file as a JSON object.
 
 ___
 
@@ -583,15 +308,19 @@ ___
 
 ▸ **isDirectory**(`filepath`): `boolean`
 
+Check if a path is directory
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `filepath` | `PathLike` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `filepath` | `PathLike` | The path to check |
 
 #### Returns
 
 `boolean`
+
+- Return true if the path is a directory, false otherwise
 
 ___
 
@@ -599,14 +328,14 @@ ___
 
 ▸ **mkdir**(`dir_path`, `recursive?`): `void`
 
-Make a directory
+Create a new directory
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `dir_path` | `PathLike` | `undefined` |
-| `recursive` | `boolean` | `true` |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `dir_path` | `PathLike` | `undefined` | The path of the directory to create |
+| `recursive?` | `boolean` | `true` | Whether to create directories recursively |
 
 #### Returns
 
@@ -618,19 +347,21 @@ ___
 
 ▸ **saveFile**(`filepath`, `content`, `options?`): `void`
 
-Save file to disk
+Write data to a file
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `filepath` | `PathOrFileDescriptor` | `undefined` |
-| `content` | `string` \| `ArrayBufferView` | `undefined` |
-| `options` | `WriteFileOptions` | `'utf8'` |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `filepath` | `PathOrFileDescriptor` | `undefined` | The path of the file |
+| `content` | `string` \| `ArrayBufferView` | `undefined` | The content to write |
+| `options?` | `WriteFileOptions` | `'utf8'` | options to be used while writing file |
 
 #### Returns
 
 `void`
+
+- Return nothing
 
 ___
 
@@ -638,43 +369,21 @@ ___
 
 ▸ **saveFileJSON**(`filepath`, `content`, `options?`): `void`
 
-Save file to disk as JSON
+Write a Javascript object to a JSON file
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `filepath` | `PathOrFileDescriptor` | `undefined` |
-| `content` | `any` | `undefined` |
-| `options` | `WriteFileOptions` | `'utf8'` |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `filepath` | `PathOrFileDescriptor` | `undefined` | The path of the file |
+| `content` | `any` | `undefined` | The object to write |
+| `options?` | `WriteFileOptions` | `'utf8'` | options to be used while writing file |
 
 #### Returns
 
 `void`
 
-___
-
-### saveFileJson
-
-▸ **saveFileJson**(`filepath`, `content`, `options?`): `void`
-
-Save file to disk as JSON
-
-**`Deprecated`**
-
-use saveFileJSON instead
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `filepath` | `PathOrFileDescriptor` | `undefined` |
-| `content` | `any` | `undefined` |
-| `options` | `WriteFileOptions` | `'utf8'` |
-
-#### Returns
-
-`void`
+- Return nothing
 
 ___
 
@@ -682,243 +391,370 @@ ___
 
 ▸ **unlink**(`filepath`): `void`
 
+Delete a file
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `filepath` | `PathLike` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `filepath` | `PathLike` | The path of the file |
 
 #### Returns
 
 `void`
 
-___
+## Imports
 
-## Imports Functions
+### ImportMethod
 
-### isImport
-
-▸ **isImport**(`data`): `boolean`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `data` | `any` |
-
-#### Returns
-
-`boolean`
-
-___
-
-### isImportDefinition
-
-▸ **isImportDefinition**(`data`): `any`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `data` | `any` |
-
-#### Returns
-
-`any`
-
-___
-
-### parseImports
-
-▸ **parseImports**<`I`\>(`imports`, `parent?`): [`ParsedImportRecords`](README.md#parsedimportrecords)<`I`\>
-
-Parse imports from `import * as name from 'path'` statements into a more manageable format.
+Ƭ **ImportMethod**\<`Args`, `Results`\>: (...`args`: `Args`[]) => `Promise`\<`Results`\> \| `Results`
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `I` | extends [`ImportMethod`](README.md#importmethod)<`any`, `any`\> = [`ImportMethod`](README.md#importmethod)<`any`, `any`\> |
+| `Args` | `any` |
+| `Results` | `any` |
 
-#### Parameters
+#### Type declaration
 
-| Name | Type |
-| :------ | :------ |
-| `imports` | `any` |
-| `parent?` | `string` |
+▸ (`...args`): `Promise`\<`Results`\> \| `Results`
 
-#### Returns
-
-[`ParsedImportRecords`](README.md#parsedimportrecords)<`I`\>
-
-___
-
-## Progress Functions
-
-### multiprogress
-
-▸ **multiprogress**(`options?`): [`MultiProgress`](classes/MultiProgress.md)
-
-Multi-Progress bar. Uses cli-progress to create multiple progress bars.
-
-**`See`**
-
-https://github.com/npkgz/cli-progress
-
-**`Deprecated`**
-
-use @snickbit/progress instead
-
-#### Parameters
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options?` | `Partial`<[`ProgressConfig`](interfaces/ProgressConfig.md)\> |
+| `...args` | `Args`[] |
 
-#### Returns
+##### Returns
 
-[`MultiProgress`](classes/MultiProgress.md)
+`Promise`\<`Results`\> \| `Results`
 
 ___
 
-### progress
+### ImportRecords
 
-▸ **progress**(`options?`): [`Progress`](classes/Progress.md)
+Ƭ **ImportRecords**\<`I`\>: `Record`\<`string`, `I` \| [`ImportDefinition`](interfaces/ImportDefinition.md)\<`I`\>\>
 
-Progress bar. Uses cli-progress to create multiple progress bars.
-
-**`See`**
-
-https://github.com/npkgz/cli-progress
-
-**`Deprecated`**
-
-use @snickbit/progress instead
-
-#### Parameters
+#### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options?` | `Partial`<[`ProgressConfig`](interfaces/ProgressConfig.md)\> |
-
-#### Returns
-
-[`Progress`](classes/Progress.md)
+| `I` | extends [`ImportMethod`](README.md#importmethod) = [`ImportMethod`](README.md#importmethod) |
 
 ___
 
-## Prompts Functions
+### ParsedImportRecords
+
+Ƭ **ParsedImportRecords**\<`I`\>: `Record`\<`string`, [`ParsedImport`](interfaces/ParsedImport.md)\<`I`\>\>
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `I` | extends [`ImportMethod`](README.md#importmethod) = [`ImportMethod`](README.md#importmethod) |
+
+___
+
+### RawImports
+
+Ƭ **RawImports**\<`I`\>: [`ImportRecords`](README.md#importrecords)\<`I`\> \| [`RecordOfImportRecords`](README.md#recordofimportrecords)\<`I`\> \| `any`
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `I` | extends [`ImportMethod`](README.md#importmethod) = [`ImportMethod`](README.md#importmethod) |
+
+___
+
+### RecordOfImportRecords
+
+Ƭ **RecordOfImportRecords**\<`I`\>: `Record`\<`string`, [`ImportRecords`](README.md#importrecords)\<`I`\>\>
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `I` | extends [`ImportMethod`](README.md#importmethod) = [`ImportMethod`](README.md#importmethod) |
+
+___
+
+### isImport
+
+▸ **isImport**(`data`): `boolean`
+
+Checks whether a given data is of "import" type.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `data` | `any` | The data to be checked. |
+
+#### Returns
+
+`boolean`
+
+- Returns true if provided data is an import type.
+
+___
+
+### isImportDefinition
+
+▸ **isImportDefinition**(`data`): `boolean`
+
+Checks whether a given data is of "import definition" type.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `data` | `any` | The data to be checked. |
+
+#### Returns
+
+`boolean`
+
+- Returns true if provided data is an import definition type.
+
+___
+
+### parseImports
+
+▸ **parseImports**\<`I`\>(`imports`, `parent?`): [`ParsedImportRecords`](README.md#parsedimportrecords)\<`I`\>
+
+Parse provided imports and prepares a record of it.
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `I` | extends [`ImportMethod`](README.md#importmethod)\<`any`, `any`\> = [`ImportMethod`](README.md#importmethod)\<`any`, `any`\> |
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `imports` | `any` | The raw imports to be parsed. |
+| `parent?` | `string` | The parent name. |
+
+#### Returns
+
+[`ParsedImportRecords`](README.md#parsedimportrecords)\<`I`\>
+
+## Modules
+
+### bufferStream
+
+▸ **bufferStream**(`readable`): `Promise`\<`Buffer`\>
+
+Buffers the data from a Readable stream and returns a Promise that resolves to a Buffer.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `readable` | `Readable` | The Readable stream to be buffered. |
+
+#### Returns
+
+`Promise`\<`Buffer`\>
+
+A Promise that resolves to a Buffer containing all the data from the Readable stream.
+
+___
+
+### makeBuffer
+
+▸ **makeBuffer**(`content`): `Buffer`
+
+Creates a new Buffer object from the given content.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `content` | `string` | The content to be used for creating the Buffer. |
+
+#### Returns
+
+`Buffer`
+
+- The created Buffer object.
+
+## Prompts
+
+### AnswerTypes
+
+Ƭ **AnswerTypes**: `Date` \| `boolean` \| `number` \| `string`
+
+___
+
+### Answers
+
+Ƭ **Answers**: `Record`\<`string`, `string`\>
+
+___
+
+### ChoiceOption
+
+Ƭ **ChoiceOption**: [`ChoiceDefinition`](interfaces/ChoiceDefinition.md) \| `string`
+
+___
+
+### ChoiceRecords
+
+Ƭ **ChoiceRecords**: `Record`\<`string`, [`ChoiceOption`](README.md#choiceoption)\>
+
+___
+
+### PromptType
+
+Ƭ **PromptType**: ``"autocomplete"`` \| ``"autocompleteMultiselect"`` \| ``"confirm"`` \| ``"date"`` \| ``"invisible"`` \| ``"list"`` \| ``"multiselect"`` \| ``"number"`` \| ``"password"`` \| ``"select"`` \| ``"text"`` \| ``"toggle"``
+
+___
+
+### PromptsMethod
+
+Ƭ **PromptsMethod**: (`prev`: `string`, `answers`: [`Answers`](README.md#answers), `previousQuestion`: [`Question`](README.md#question)) => `Promise`\<`string`\> \| `string`
+
+#### Type declaration
+
+▸ (`prev`, `answers`, `previousQuestion`): `Promise`\<`string`\> \| `string`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `prev` | `string` |
+| `answers` | [`Answers`](README.md#answers) |
+| `previousQuestion` | [`Question`](README.md#question) |
+
+##### Returns
+
+`Promise`\<`string`\> \| `string`
+
+___
+
+### Question
+
+Ƭ **Question**: [`AutoCompleteMultiSelectQuestion`](interfaces/AutoCompleteMultiSelectQuestion.md) \| [`AutoCompleteQuestion`](interfaces/AutoCompleteQuestion.md) \| [`ConfirmQuestion`](interfaces/ConfirmQuestion.md) \| [`DateQuestion`](interfaces/DateQuestion.md) \| [`InvisibleQuestion`](interfaces/InvisibleQuestion.md) \| [`ListQuestion`](interfaces/ListQuestion.md) \| [`MultiSelectQuestion`](interfaces/MultiSelectQuestion.md) \| [`NumberQuestion`](interfaces/NumberQuestion.md) \| [`PasswordQuestion`](interfaces/PasswordQuestion.md) \| [`SelectQuestion`](interfaces/SelectQuestion.md) \| [`TextQuestion`](interfaces/TextQuestion.md) \| [`ToggleQuestion`](interfaces/ToggleQuestion.md)
+
+___
+
+### QuestionRecords
+
+Ƭ **QuestionRecords**: `Record`\<`string`, [`Question`](README.md#question)\>
+
+___
 
 ### ask
 
-▸ **ask**(`question`, `defaultAnswer?`): `Promise`<`any`\>
+▸ **ask**(`question`, `defaultAnswer?`): `Promise`\<`any`\>
 
 Prompt the user for input using Prompts.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `question` | `string` | The question to be asked to the user. |
+| `defaultAnswer?` | `string` \| `boolean` | The default answer for the question. |
+
+#### Returns
+
+`Promise`\<`any`\>
+
+- A promise that will be resolved with the answer.
 
 **`See`**
 
 https://github.com/terkelg/prompts
 
-#### Parameters
+▸ **ask**(`question`, `options?`): `Promise`\<`any`\>
 
-| Name | Type |
-| :------ | :------ |
-| `question` | `string` |
-| `defaultAnswer?` | `string` \| `boolean` |
-
-#### Returns
-
-`Promise`<`any`\>
-
-▸ **ask**(`question`, `options?`): `Promise`<`any`\>
+Prompt the user for input using Prompts.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `question` | `string` |
-| `options?` | `Partial`<[`Question`](README.md#question)\> |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `question` | `string` | The question to be asked to the user. |
+| `options?` | `Partial`\<[`Question`](README.md#question)\> | The options for the question. |
 
 #### Returns
 
-`Promise`<`any`\>
+`Promise`\<`any`\>
+
+- A promise that will be resolved with the answer.
+
+**`See`**
+
+https://github.com/terkelg/prompts
 
 ___
 
 ### confirm
 
-▸ **confirm**(`question`, `defaultAnswer?`): `Promise`<`boolean`\>
+▸ **confirm**(`question`, `defaultAnswer?`): `Promise`\<`boolean`\>
 
-Prompt the user for confirmation using Prompts.
+Prompt the user for confirmation using Prompts with a default boolean answer.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `question` | `string` | The question to be asked to the user. |
+| `defaultAnswer?` | `boolean` | The default answer for the question. |
+
+#### Returns
+
+`Promise`\<`boolean`\>
+
+- A promise that will be resolved with the answer.
 
 **`See`**
 
 https://github.com/terkelg/prompts
 
-#### Parameters
+▸ **confirm**(`question`, `options?`): `Promise`\<`boolean`\>
 
-| Name | Type |
-| :------ | :------ |
-| `question` | `string` |
-| `defaultAnswer?` | `boolean` |
-
-#### Returns
-
-`Promise`<`boolean`\>
-
-▸ **confirm**(`question`, `options?`): `Promise`<`boolean`\>
+Prompt the user for confirmation using Prompts with question options.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `question` | `string` |
-| `options?` | `Partial`<[`Question`](README.md#question)\> |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `question` | `string` | The question to be asked to the user. |
+| `options?` | `Partial`\<[`Question`](README.md#question)\> | The options for the question. |
 
 #### Returns
 
-`Promise`<`boolean`\>
+`Promise`\<`boolean`\>
+
+- A promise that will be resolved with the answer.
+
+**`See`**
+
+https://github.com/terkelg/prompts
 
 ___
 
 ### prompt
 
-▸ **prompt**(`questions`): `Promise`<[`Answers`](README.md#answers)\>
+▸ **prompt**(`questions`): `Promise`\<[`Answers`](README.md#answers)\>
+
+Prompts the user with questions and returns the answers as a promise.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `questions` | [`QuestionRecords`](README.md#questionrecords) \| [`Question`](README.md#question)[] |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `questions` | [`QuestionRecords`](README.md#questionrecords) \| [`Question`](README.md#question)[] | The questions to prompt the user with. |
 
 #### Returns
 
-`Promise`<[`Answers`](README.md#answers)\>
+`Promise`\<[`Answers`](README.md#answers)\>
 
-___
-
-## Spinner Functions
-
-### spinner
-
-▸ **spinner**(`options?`): [`Spinner`](classes/Spinner.md)
-
-Spinner. Uses nanospinner to show spinners in the terminal.
-
-**`See`**
-
-https://github.com/usmanyunusov/nanospinner
-
-**`Deprecated`**
-
-use @snickbit/spinner instead
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options?` | `string` \| `Partial`<[`SpinnerConfig`](interfaces/SpinnerConfig.md)\> |
-
-#### Returns
-
-[`Spinner`](classes/Spinner.md)
+- A promise that resolves with the answers provided by the user.

@@ -94,7 +94,7 @@ ___
 
 ### type
 
-• **type**: ``"list"`` \| [`PromptTypeMethod`](PromptTypeMethod.md)<``"list"``\>
+• **type**: ``"list"`` \| [`PromptTypeMethod`](PromptTypeMethod.md)\<``"list"``\>
 
 ## Methods
 

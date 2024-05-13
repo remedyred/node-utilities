@@ -34,19 +34,26 @@ export const verbose: number = Number.parseInt(process.env.VERBOSE || '0') || 0
 export const bashrc_path = `${home_dir}/.bashrc`
 
 /**
- * Check if the current process is a Electron app
+ * Determine if the current process is an Electron app.
+ * @return {boolean} True if the current process is an Electron app, false otherwise.
  * @category Environment
  */
 export const isElectronApp = (): boolean => !!process.versions.electron
 
 /**
- * Check if the current process is a bundled Electron app.
+ * Determine if the current process is a bundled Electron app.
+ * @return {boolean} True if the current process is a bundled Electron app, false otherwise.
  * @category Environment
  */
 export const isBundledElectronApp = (): boolean => isElectronApp() && !process?.defaultApp
 
 /**
- * interpolate string with env variables, optionally pass an object of default values
+ * Interpolate environment variables in the provided string.
+ * @param {string} str The string in which to interpolate environment variables.
+ * @param {Record<string, string>} defaultValues An object representing the default values for variables.
+ * @return {string} The interpolated string.
  * @category Environment
  */
-export const interpolateEnv = (str: string, defaultValues: Record<string, string> = {}): string => interpolate(str, {...defaultValues, ...process.env})
+export function interpolateEnv(str: string, defaultValues: Record<string, string> = {}): string {
+	return interpolate(str, {...defaultValues, ...process.env})
+}

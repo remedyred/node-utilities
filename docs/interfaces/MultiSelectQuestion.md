@@ -2,7 +2,7 @@
 
 ## Hierarchy
 
-- `Omit`<`BaseQuestion`, ``"initial"``\>
+- `Omit`\<`BaseQuestion`, ``"initial"``\>
 
 - `QuestionMinMax`
 
@@ -141,7 +141,7 @@ ___
 
 ### type
 
-• **type**: ``"multiselect"`` \| [`PromptTypeMethod`](PromptTypeMethod.md)<``"multiselect"``\>
+• **type**: ``"multiselect"`` \| [`PromptTypeMethod`](PromptTypeMethod.md)\<``"multiselect"``\>
 
 ___
 

@@ -202,7 +202,12 @@ const defaultPromptOptions = {
 	onState
 }
 
-/** @category Prompts */
+/**
+ * Prompts the user with questions and returns the answers as a promise.
+ * @category Prompts
+ * @param {Question[] | QuestionRecords} questions - The questions to prompt the user with.
+ * @return {Promise<Answers>} - A promise that resolves with the answers provided by the user.
+ */
 export async function prompt(questions: Question[] | QuestionRecords): Promise<Answers> {
 	if (isObject(questions)) {
 		const answers: Answers = {}
@@ -217,24 +222,53 @@ export async function prompt(questions: Question[] | QuestionRecords): Promise<A
 }
 
 /**
- * Prompt the user for confirmation using Prompts.
+ * Prompt the user for confirmation using Prompts with a default boolean answer.
+ * @param {string} question - The question to be asked to the user.
+ * @param {boolean} [defaultAnswer] - The default answer for the question.
+ * @return {Promise<boolean>} - A promise that will be resolved with the answer.
  * @see https://github.com/terkelg/prompts
  * @category Prompts
  */
 export async function confirm(question: string, defaultAnswer?: boolean): Promise<boolean>
+
+/**
+ * Prompt the user for confirmation using Prompts with question options.
+ * @param {string} question - The question to be asked to the user.
+ * @param {Partial<Question>} [options] - The options for the question.
+ * @return {Promise<boolean>} - A promise that will be resolved with the answer.
+ * @see https://github.com/terkelg/prompts
+ * @category Prompts
+ */
 export async function confirm(question: string, options?: Partial<Question>): Promise<boolean>
+
 export async function confirm(question: string, optionsOrDefault?: Partial<Question> | boolean): Promise<boolean> {
-	const options = typeof optionsOrDefault === 'object' ? {...optionsOrDefault, type: 'confirm'} : {type: 'confirm', initial: optionsOrDefault}
+	const options = typeof optionsOrDefault === 'object' ? {...optionsOrDefault, type: 'confirm'} : {
+		type: 'confirm',
+		initial: optionsOrDefault
+	}
 	return ask(question, options as Question)
 }
 
 /**
  * Prompt the user for input using Prompts.
  * @see https://github.com/terkelg/prompts
+ * @param {string} question - The question to be asked to the user.
+ * @param {boolean|string} [defaultAnswer] - The default answer for the question.
+ * @return {Promise<any>} - A promise that will be resolved with the answer.
  * @category Prompts
  */
 export async function ask(question: string, defaultAnswer?: boolean | string): Promise<any>
+
+/**
+ * Prompt the user for input using Prompts.
+ * @see https://github.com/terkelg/prompts
+ * @param {string} question - The question to be asked to the user.
+ * @param {Partial<Question>} [options] - The options for the question.
+ * @return {Promise<any>} - A promise that will be resolved with the answer.
+ * @category Prompts
+ */
 export async function ask(question: string, options?: Partial<Question>): Promise<any>
+
 export async function ask(question: string, optionsOrDefault?: Partial<Question> | boolean | string): Promise<any> {
 	const options = parseOptions(optionsOrDefault, {
 		...defaultPromptOptions,
@@ -281,6 +315,12 @@ export async function ask(question: string, optionsOrDefault?: Partial<Question>
 	return answer
 }
 
+/**
+ * A helper function that checks if a given choice is lazy type or not.
+ * @param {any} choice - The choice to be checked.
+ * @returns {boolean} Returns 'true' if the choice is a lazy type (i.e, string or number). Returns 'false' otherwise.
+ * @internal
+ */
 function isLazyChoice(choice: any): choice is LazyChoice {
 	return typeof choice === 'number' || typeof choice === 'string'
 }
